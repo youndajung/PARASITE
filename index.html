@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>기생충시팔</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script src="js/jquery.bxslider.js"></script>
+	<style>
+		html,body{height: 100%;}
+		div#tnb{
+			position:fixed;
+			z-index: 1;
+			width: 100%;
+			padding-top: 100px;
+			padding-left: 80px;
+		}
+		div#tnb li{float: left;}
+		div#tnb li >a{
+			display: block; 
+			line-height: 100px; 
+			text-align: center; 
+			padding: 0 15px;
+			color:#ddd;
+		}
+		#page2{background-image: url(images/fullpagebg02.jpg);}
+		#page3{background-image: url(images/fullpagebg03.jpg);}
+		.page{
+			background-repeat: no-repeat;
+			background-position:center;
+			background-size: cover;
+			text-align: center;
+		}
+		.scroll{
+			position: absolute; 
+			bottom: 20px; left: 50%; 
+			transform:translateX(-50%);
+			animation-name:xScroll;
+			animation-duration:.8s;
+			animation-iteration-count:infinite;
+			animation-direction:alternate;
+		}
+		@keyframes xScroll{
+			from{bottom:20px;}
+			to{bottom: 40px;}
+		}
+		#tnb .active{background-color: orange;}
+
+		.main{
+			width: 400px;
+			position: absolute; left: 50%; color:#fff;
+			transform:translate(-50%,-50%);
+			text-align: center;
+		}
+		.main >h3{font-size: 3em;}
+		.main >p{font-size: 1.5em; margin-bottom: 20px;}
+		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}
+		.main >a:hover{background-color: #fff; color:#000;}
+		#onView{top: 20%; transition:.3s; opacity:0;}
+		#onView.move{top: 50%; opacity:1;}
+		#onView03{left: 20%; transition:.3s; opacity:0;}
+		#onView03.move{left: 50%; opacity:1;}
+		#myVideo{
+			position: absolute;
+			bottom: 0; top: 0; right: 0;
+			width: 100%; height: 100%;
+			background-size: 100% 100%;
+			background-color: #000;
+			background-position: center center;
+			object-fit:cover;
+			z-index: 3;
+		}
+
+		.bx-wrapper {
+		    margin-bottom: 0;
+		}
+	/*	.slider1{padding-top: 50px;}*/
+
+		#nav{
+			width: 40%;
+			height: 100%;
+			position: fixed;
+			background-color: rgba(0,0,0,.8);
+			z-index: 2;
+			display: none;
+		}
+		#nav #navWrap{
+			width: 100%; height: 100%;
+			padding: 140px 0;
+		}
+		#back{
+			display: inline-block;
+			position: absolute;
+			left: 15%;
+		}
+		#back img{
+			display: block;
+			transition:.5s;
+		}
+		#back:hover img{
+			transform:rotate(180deg);
+		}
+		#logo{
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			transform:translateX(-50%);
+		}
+		.nav_menu{
+			width: 300px; height: 600px;
+			position: absolute;
+			left: 55%; top: 250px;
+			transform:translateX(-50%);
+		}
+		.nav_menu ul{width: 100%; height: 100%;}
+		.nav_menu ul li{
+			width: 100%;
+			height: 20%;
+		}
+		.nav_menu ul li a{
+			display: block;
+			width: 100%;
+			font-size:3rem;
+			color:#999;
+			line-height: 120px;
+			position: relative;
+			transition:.3s;
+		}
+		.nav_menu ul li a.active{
+			color:#fff;
+		}
+
+		.nav_menu ul li a .line{
+			display: inline-block;
+			width: 50px; height: 5px; background-color: #fff;
+			position: absolute;
+			top: 50%; left: -25px;
+			opacity:0;
+			transition:.3s;
+		}
+		.nav_menu ul li a span{transition:.3s;}
+
+
+		.nav_menu ul li a:hover{color:#fff;}
+		.nav_menu ul li a:hover .line{opacity:1;}
+		.nav_menu ul li a:hover span{padding-left: 20px;}
+
+		#fnbWrap{
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			z-index: 1;
+			padding: 0 80px 100px 80px;
+		}
+		.fnb{width: 100%;}
+		.soundLp{
+			margin-left: -50px;
+			display: none;
+			animation:lp 1s infinite forwards alternate;
+		}
+		@keyframes lp{
+			from{transform:translateY(0);}
+			to{transform:translateY(-30px);}
+		}
+
+		.soundLp img{display: block;}
+
+		.soundWrap{float: left; position: relative;}
+		.soundWrap:hover :after,
+		.reservWrap:hover :after{
+			content:"";
+			display: block;
+			width: 130px; height: 3px;
+			background-color: #fff;
+			position: absolute;
+			top: 50%;
+		}
+		.fnb .reservWrap{float: right; position: relative;}
+		.fnb div a{color:#999; font-size: 1.4rem;}
+
+		#sBox,
+		#rBox{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			bottom: 0;
+			z-index: 2;
+			display: none;
+		}
+		#sBox .sTitle,
+		#rBox .rTitle{
+			width: 100%;
+			font-size: 5rem;
+		    padding-left: 80px;
+		    font-weight: bold;
+		    color:#999;
+		    position: absolute;
+		    bottom: 50%
+		}
+		.sTitle .fnb_close,
+		.rTitle .fnb_close02{
+			position: absolute; left: 50%;
+			transform:translateX(-50%);
+		}
+		.sTitle .fnb_close img,
+		.rTitle .fnb_close02 img{
+			display: inline-block;
+			transition:.3s;
+		}
+		.sTitle .fnb_close:hover img,
+		.rTitle .fnb_close02:hover img{
+			transform:rotate(180deg);
+		}
+		#sBox .sContent,
+		#rBox .rContent{
+			width: 100%;
+			height: 50%; 
+			background-color: rgba(255,255,255,.8);
+			padding: 50px 0;
+			position: absolute;
+			bottom: 0;
+		}
+		#sBox .sContent >div,
+		#rBox .rContent >div{
+			float: left;
+		}
+		.sContent .play{
+			width: 30%; height: 400px;
+			background-color: #fff;
+			margin-left: 80px;
+		}
+		.sContent .list{
+			width: 60%; height: 400px;
+			background-color: #000;
+			margin-left: 50px;
+		}
+		.rContent div{width: 30%; height: 400px; background-color: red;}
+		.rContent .cgv{margin-left: 80px;}
+		.rContent .lotte{margin-left: 25px;}
+		.rContent .megabox{margin-left: 25px;}
+
+		.charWrap{width: 100%; height: 100%; position: relative;}
+		.charWrap>div>a>img{display: block}
+		.char01Btn{
+			width: 411px; height: 350px; background-color: red;
+			position: absolute;
+			top: 157px; left: 273px;
+			opacity:0;
+		}
+		.char01hv{
+			position: absolute;
+			top: 141px; left: 273px;
+			_display: none;
+		}
+		.char02Btn{
+			width: 270px; height: 240px; background-color: red;
+			position: absolute;
+			top: 296px; left: 656px;
+		}
+		.char02hv{
+			position: absolute;
+			top: 295px; left: 607px;
+			_display: none;
+		}
+		.char03Btn{
+			width: 383px; height: 400px; background-color: red;
+			position: absolute;
+			top: 95px; left: 890px;
+		}
+		.char03hv{
+			position: absolute;
+			top: 96px; left: 639px;
+			_display: none;
+		}
+		.char04Btn{
+			width: 370px; height: 360px; background-color: red;
+			position: absolute;
+			top: 130px; left: 1311px;
+		}
+		.char04hv{
+			position: absolute;
+			top: 130px; left: 1290px;
+			_display: none;
+		}
+		
+		
+
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#fullPage").fullpage({
+				anchors:["1st","2st","3st","4st"],
+				menu:("#topMenu"),
+				navigation:true,
+				slideNavigation:true,
+				afterLoad:function(anchorslink,index){
+					console.log(anchorslink+","+index);
+					if(index==2){
+						$("#onView").addClass("move");
+					}else{
+						$("#onView").removeClass("move");
+					}
+				}
+			});
+			// $(window).resize(function(){
+			// 	sHeight();
+			// });
+
+			// function sHeight(){
+			// 	var sHeight=$(window).height();
+			// 	$(".slider1").height(sHeight);
+			// 	console.log(sHeight);
+			// }
+			// sHeight();	
+			
+			$(".sliderWrap").bxSlider({
+				pager:false,
+			});
+			
+			var navMenu=$(".nav_menu>ul>li");
+			navMenu.click(function(){
+				var i=$(this).index();
+				$(".nav_menu>ul>li>a").removeClass("active").eq(i).addClass("active");
+				$(".line").eq(i).css("width",300);
+			});
+
+			$("#menu").click(function(){
+				$("#nav").fadeIn();
+				$("#back").click(function(){
+					$("#nav").hide();
+				});
+			});
+			$(".soundWrap").hover(function(){
+				$(".soundLp").fadeIn();
+			},function(){
+				$(".soundLp").hide();
+			});
+			$(".soundWrap").click(function(){
+				$(".soundLp").hide();
+				$("#sBox").fadeIn();
+				$(".fnb_close").click(function(){
+					$("#sBox").hide();
+				});
+			});
+			$(".reservWrap").click(function(){
+				$("#rBox").fadeIn();
+				$(".fnb_close02").click(function(){
+					$("#rBox").hide();
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="tnb">
+		<ul id="topMenu" class="clearfix">
+			<li id="menu"><a href="#nav"><img src="images/menu.png" alt=""></a></li>
+			<li><a href="https://www.facebook.com/CJENMMOVIE/" target="blank"><img src="images/facebook.png" alt=""></a></li>
+			<li><a href="https://twitter.com/CJEnMMovie" target="blank"><img src="images/twitter.png" alt=""></a></li>
+			<li><a href="https://www.instagram.com/parasitemovie/" target="blank"><img src="images/instagram.png" alt=""></a></li>
+			<li><a href="https://www.youtube.com/channel/UCRV0Gb4i99Aj9UiqCE8xlvw" target="blank"><img src="images/youtube.png" alt=""></a></li>
+		</ul>
+	</div>
+	<nav id="nav">
+		<div id="navWrap">
+			<div id="back">
+				<a href="" class="nav_close"><img src="images/nav_close.png" alt=""></a>
+			</div>
+			<div id="logo">
+				<img src="images/nav_title.png" alt="">
+			</div>
+			<div class="nav_menu">
+				<ul id="topMenu">
+					<li  data-menuanchor="1st">
+						<a href="#1st">
+							<div class="line"></div>
+							<span>Home</span>
+						</a>
+					</li>
+					<li  data-menuanchor="2st">
+						<a href="#2st">
+							<div class="line"></div>
+							<span>About</span>
+						</a>
+					</li>
+					<li  data-menuanchor="3st">
+						<a href="#3st">
+							<div class="line"></div>
+							<span>Character</span>
+						</a>
+					</li>
+					<li  data-menuanchor="4st">
+						<a href="#4st">
+							<div class="line"></div>
+							<span>Trailer</span>
+						</a>
+					</li>
+					<li  data-menuanchor="5st">
+						<a href="#5st">
+							<div class="line"></div>
+							<span>Gallery</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="fnbWrap">
+		<div class="fnb clearfix">
+			<div class="soundLp"><img src="images/sound_lp.png" alt=""></div>
+			<div class="soundWrap">
+				<a href="#sBox">Sound Track
+				</a>
+			</div>
+			<div class="reservWrap">
+				<a href="#rBox">Reservation</a>
+			</div>
+		</div>
+	</div>
+	<div id="sBox">
+		<div class="sTitle">Sound Track
+			<a href="" class="fnb_close"><img src="images/fnb_close.png" alt=""></a>
+		</div>
+		<div class="sContent clearfix">
+			<div class="play"></div>
+			<div class="list"></div>
+		</div>
+	</div>
+	<div id="rBox">
+		<div class="rTitle">Reservation
+			<a href="" class="fnb_close02"><img src="images/fnb_close.png" alt=""></a>
+		</div>
+		<div class="rContent clearfix">
+			<div class="cgv"></div>
+			<div class="lotte"></div>
+			<div class="megabox"></div>
+		</div>
+	</div>
+
+	<div id="fullPage">
+		<div class="section page" id="page1" data-anchor="1st">
+			<video id="myVideo" data-autoplay muted autoplay loop><source src="images/trailer.mp4" type="video/mp4"></video>
+		</div>
+		<div class="section page" id="page2" data-anchor="2st">
+			<div class="main" id="onView">
+				<h3>Lorem ipsum.</h3>
+				<p>Lorem ipsum dolor sit.</p>
+				<a href="#">more</a>
+			</div>
+		</div>
+		<div class="section page" id="page3" data-anchor="3st">
+			<div class="charWrap">
+				<div id="char01">
+					<a href="" class="char01Btn"></a>
+					<a href="" class="char01hv"><img src="images/char01.png" alt=""></a>
+				</div>
+				<div id="char02">
+					<a href="" class="char02Btn"></a>
+					<a href="" class="char02hv"><img src="images/char02.png" alt=""></a>
+				</div>
+				<div id="char03">
+					<a href="" class="char03Btn"></a>
+					<a href="" class="char03hv"><img src="images/char03.png" alt=""></a>
+				</div>
+				<div id="char04">
+					<a href="" class="char04Btn"></a>
+					<a href="" class="char04hv"><img src="images/char04.png" style="width:300px" alt=""></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="section page" id="page4" data-anchor="4st">
+			<video id="myVideo" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
+		</div>
+		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
+			5
+		</div>
+		<div class="section page fp-auto-height" id="page6">
+			<div class="footer" style="height:300px; background-color: skyblue;"></div>
+		</div>
+	</div>
+</body>
+</html>
