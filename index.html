@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
-	<title>기생충시팔</title>
+	<title>기생충</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/fullpage.css">
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
@@ -28,7 +28,7 @@
 			color:#ddd;
 		}
 		#page2{background-image: url(images/fullpagebg02.jpg);}
-		#page3{background-image: url(images/fullpagebg03.jpg);}
+		#page3{background-image: url(images/fullpagebg0303.jpg);}
 		.page{
 			background-repeat: no-repeat;
 			background-position:center;
@@ -243,49 +243,46 @@
 		.rContent .lotte{margin-left: 25px;}
 		.rContent .megabox{margin-left: 25px;}
 
-		.charWrap{width: 100%; height: 100%; position: relative;}
-		.charWrap>div>a>img{display: block}
-		.char01Btn{
-			width: 411px; height: 350px; background-color: red;
+		.charWrap{
+			width: 1000px; height: 100%; 
+			 margin: 0 auto;
+			background-color: orange;
+			position: relative;
+		}
+
+		.fam{position: absolute; bottom: 0; left: 50%; transform:translateX(-50%);}
+		.famImg{display: block;}
+		.family{display: block;}
+		.char01{display: none;}
+		.char02{display: none;}
+		.char03{display: none;}
+		.char04{display: none;}
+		.char05{display: none;}
+		.char06{display: none;}
+		.char07{display: none;}
+		.char08{display: none;}
+
+		_.btnWrap{width: 100%; height: 100%; background-color: orange;}
+		.btn01{
+			width:50px; height: 50px;
+			background-color: rgba(255,255,255,.5);
+			border-radius: 50%;
 			position: absolute;
-			top: 157px; left: 273px;
+			top: 320px; left: 170px;
+			animation: btnAni 1s infinite alternate;
 			opacity:0;
 		}
-		.char01hv{
-			position: absolute;
-			top: 141px; left: 273px;
-			_display: none;
+		@keyframes btnAni{
+			to{opacity:1;}
 		}
-		.char02Btn{
-			width: 270px; height: 240px; background-color: red;
+		.btn0101{
+			display: block;
 			position: absolute;
-			top: 296px; left: 656px;
+			top: 327px; left: 177px;
+			cursor:pointer;
 		}
-		.char02hv{
-			position: absolute;
-			top: 295px; left: 607px;
-			_display: none;
-		}
-		.char03Btn{
-			width: 383px; height: 400px; background-color: red;
-			position: absolute;
-			top: 95px; left: 890px;
-		}
-		.char03hv{
-			position: absolute;
-			top: 96px; left: 639px;
-			_display: none;
-		}
-		.char04Btn{
-			width: 370px; height: 360px; background-color: red;
-			position: absolute;
-			top: 130px; left: 1311px;
-		}
-		.char04hv{
-			position: absolute;
-			top: 130px; left: 1290px;
-			_display: none;
-		}
+		
+		.btn0101:hover .family{display: none;}//여기까지
 		
 		
 
@@ -352,6 +349,11 @@
 					$("#rBox").hide();
 				});
 			});
+			// $(".btn0101").hover(function(){
+			// 	$("char01").css({display:"block"});
+			// },function(){
+
+			// });
 		});
 	</script>
 </head>
@@ -454,21 +456,20 @@
 		</div>
 		<div class="section page" id="page3" data-anchor="3st">
 			<div class="charWrap">
-				<div id="char01">
-					<a href="" class="char01Btn"></a>
-					<a href="" class="char01hv"><img src="images/char01.png" alt=""></a>
+				<div class="fam">
+					<img class="famImg family" src="images/family02.png" alt="단체">
+					<img class="famImg char01" src="images/character01.png" alt="기택">
+					<img class="famImg char02" src="images/character02.png" alt="다혜">
+					<img class="famImg char03" src="images/character03.png" alt="박사장">
+					<img class="famImg char04" src="images/character04.png" alt="기우">
+					<img class="famImg char05" src="images/character05.png" alt="기정">
+					<img class="famImg char06" src="images/character06.png" alt="연교">
+					<img class="famImg char07" src="images/character07.png" alt="다송">
+					<img class="famImg char08" src="images/character08.png" alt="충숙">
 				</div>
-				<div id="char02">
-					<a href="" class="char02Btn"></a>
-					<a href="" class="char02hv"><img src="images/char02.png" alt=""></a>
-				</div>
-				<div id="char03">
-					<a href="" class="char03Btn"></a>
-					<a href="" class="char03hv"><img src="images/char03.png" alt=""></a>
-				</div>
-				<div id="char04">
-					<a href="" class="char04Btn"></a>
-					<a href="" class="char04hv"><img src="images/char04.png" style="width:300px" alt=""></a>
+				<div class="btnWrap">
+					<div href="#" class="btn01"></div>
+					<img class="btn0101"src="images/plus.png" alt="자세히보기">
 				</div>
 			</div>
 		</div>
