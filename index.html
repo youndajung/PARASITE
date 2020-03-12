@@ -6,12 +6,16 @@
 	<title>기생충</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/fullpage.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery.fullPage.js"></script>
 	<script src="js/jquery.bxslider.js"></script>
 	<style>
-		html,body{height: 100%;}
+		html,body{
+			height: 100%;
+			font-family: 'Noto Serif KR', serif;
+		}
 		div#tnb{
 			position:fixed;
 			z-index: 1;
@@ -263,26 +267,6 @@
 		.char08{display: none;}
 
 		_.btnWrap{width: 100%; height: 100%; background-color: orange;}
-		.btn01{
-			width:50px; height: 50px;
-			background-color: rgba(255,255,255,.5);
-			border-radius: 50%;
-			position: absolute;
-			top: 320px; left: 170px;
-			animation: btnAni 1s infinite alternate;
-			opacity:0;
-		}
-		@keyframes btnAni{
-			to{opacity:1;}
-		}
-		.btn0101{
-			display: block;
-			position: absolute;
-			top: 327px; left: 177px;
-			cursor:pointer;
-		}
-		
-		.btn0101:hover .family{display: none;}//여기까지
 		
 		
 
@@ -295,7 +279,7 @@
 				navigation:true,
 				slideNavigation:true,
 				afterLoad:function(anchorslink,index){
-					console.log(anchorslink+","+index);
+					// console.log(anchorslink+","+index);
 					if(index==2){
 						$("#onView").addClass("move");
 					}else{
@@ -349,11 +333,39 @@
 					$("#rBox").hide();
 				});
 			});
-			// $(".btn0101").hover(function(){
-			// 	$("char01").css({display:"block"});
-			// },function(){
 
+
+			// $(".plus").hover(function(){
+			// 	$(".char01").css({"display":"block"});
+			// 	$(".family").css({"display":"none"});
+			// },function(){
+			// 	$(".family").css({"display":"block"});
+			// 	$(".char01").css({"display":"none"});
 			// });
+
+			// for(i=0;i<8;i++){
+			// 	function btnHover(){
+			// 		$(".btnWrap>div").eq(i).hover(function(){
+			// 			var i=$(this).index();
+			// 			$(".famImg").eq().css({"display":"none"}).eq(i).css({"display":"block"});
+			// 		});
+			// 	};
+			// }
+			
+			// btnHover();
+
+			var btnNum=$(".btnWrap>div").index();
+			var imgNum=btnNum+1;
+			console.log(btnNum,imgNum);
+			$(".plus").eq(btnNum).hover(function(){
+				$(".fam>img").eq(0).css({"display":"none"})
+				.eq(imgNum).css({"display":"block"});
+			},function(){
+				$(".fam>img").eq(0).css({"display":"block"})
+				.eq(imgNum).css({"display":"none"});
+			});
+			
+			
 		});
 	</script>
 </head>
@@ -457,6 +469,7 @@
 		<div class="section page" id="page3" data-anchor="3st">
 			<div class="charWrap">
 				<div class="fam">
+
 					<img class="famImg family" src="images/family02.png" alt="단체">
 					<img class="famImg char01" src="images/character01.png" alt="기택">
 					<img class="famImg char02" src="images/character02.png" alt="다혜">
@@ -466,11 +479,77 @@
 					<img class="famImg char06" src="images/character06.png" alt="연교">
 					<img class="famImg char07" src="images/character07.png" alt="다송">
 					<img class="famImg char08" src="images/character08.png" alt="충숙">
+
+					<div class="btnWrap">
+						<div class="btnWrap01">
+							<div href="#" class="btn">기택</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap02">
+							<div href="#" class="btn">다혜</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap03">
+							<div href="#" class="btn">박사장</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap04">
+							<div href="#" class="btn">기우</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap05">
+							<div href="#" class="btn">기정</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap06">
+							<div href="#" class="btn">연교</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap07">
+							<div href="#" class="btn">다송</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+						<div class="btnWrap08">
+							<div href="#" class="btn">충숙</div>
+							<img class="plus"src="images/plus.png" alt="자세히보기">
+						</div>
+					</div>
+					
 				</div>
-				<div class="btnWrap">
-					<div href="#" class="btn01"></div>
-					<img class="btn0101"src="images/plus.png" alt="자세히보기">
-				</div>
+
+<style>
+	.btnWrap{width: 100%;height: 683px;position: absolute;bottom: 0;background-color:rgba(0,0,0,.5);}
+	.btnWrap01{position: absolute;width: 50px;height: 50px;bottom: 600px;left: 200px;}
+	.btnWrap02{position: absolute;width: 50px;height: 50px;bottom: 500px;left: 400px;}
+	.btnWrap03{position: absolute;width: 50px;height: 50px;bottom: 650px;left: 630px;}
+	.btnWrap04{position: absolute;width: 50px;height: 50px;bottom: 600px;left: 960px;}
+	.btnWrap05{position: absolute;width: 50px;height: 50px;bottom: 320px;left: 200px;}
+	.btnWrap06{position: absolute;width: 50px;height: 50px;bottom: 310px;left: 490px;}
+	.btnWrap07{position: absolute;width: 50px;height: 50px;bottom: 300px;left: 700px;}
+	.btnWrap08{position: absolute;width: 50px;height: 50px;bottom: 320px;left: 930px;}
+	.plus{
+		display: block;
+		position: absolute;
+		margin:7px;
+		/*top: 327px; left: 177px;*/
+		cursor:pointer;
+	}
+	.btn{
+		width:50px; height: 50px;
+		background-color: rgba(255,255,255,.5);
+		border-radius: 50%;
+		position: absolute;
+		/*top: 320px; left: 170px;*/
+		animation: btnAni 1s infinite alternate;
+		opacity:0;
+	}
+	@keyframes btnAni{
+		to{opacity:1;}
+	}
+	
+		
+</style>
+				
 			</div>
 		</div>
 
