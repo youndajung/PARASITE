@@ -4,329 +4,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>기생충</title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/fullpage.css">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery.fullPage.js"></script>
 	<script src="js/jquery.bxslider.js"></script>
-	<style>
-		html,body{
-			height: 100%;
-			font-family: 'Noto Serif KR', serif;
-		}
-		div#tnb{
-			position:fixed;
-			z-index: 1;
-			width: 500px;
-			padding-top: 100px;
-			padding-left: 80px;
-		}
-		div#tnb li{float: left;}
-		div#tnb li >a{
-			display: inline-block; 
-			_line-height: 100px; 
-			text-align: center; 
-			padding: 0 15px;
-			color:#ddd;
-		}
-		div#tnb li:nth-child(2) a,
-		div#tnb li:nth-child(3) a,
-		div#tnb li:nth-child(4) a,
-		div#tnb li:nth-child(5) a{
-			line-height: 100px;
-		}
-		#page2{background-image: url(images/fullpagebg02.jpg);}
-		#page3{background-image: url(images/fullpagebg0303.jpg); overflow:hidden;}
-		.page{
-			background-repeat: no-repeat;
-			background-position:center;
-			background-size: cover;
-			text-align: center;
-		}
-		.scroll{
-			position: absolute; 
-			bottom: 20px; left: 50%; 
-			transform:translateX(-50%);
-			animation-name:xScroll;
-			animation-duration:.8s;
-			animation-iteration-count:infinite;
-			animation-direction:alternate;
-		}
-		@keyframes xScroll{
-			from{bottom:20px;}
-			to{bottom: 40px;}
-		}
-		#tnb .active{background-color: orange;}
 
-		.main{
-			width: 400px;
-			position: absolute; left: 50%; color:#fff;
-			transform:translate(-50%,-50%);
-			text-align: center;
-			_background-color: red;
-		}
-		.main >h3{font-size: 1.5rem;}
-		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}
-		.main >a:hover{background-color: #fff; color:#000;}
-		#onView{top: 0; transition:.3s; opacity:0;}
-		#onView.move{top: 15%; opacity:1;}
-		#onView03{top: 0; transition:.3s; opacity:0; z-index: 10;}
-		#onView03.move{top: 15%; opacity:1;}
-		#myVideo{
-			position: absolute;
-			bottom: 0; top: 0; right: 0;
-			width: 100%; height: 100%;
-			background-size: 100% 100%;
-			background-color: #000;
-			background-position: center center;
-			object-fit:cover;
-			z-index: 3;
-		}
-
-		.bx-wrapper {
-		    margin-bottom: 0;
-		}
-	/*	.slider1{padding-top: 50px;}*/
-
-		#nav{
-			width: 40%;
-			height: 100%;
-			position: fixed;
-			background-color: rgba(0,0,0,.8);
-			z-index: 2;
-			display: none;
-		}
-		#nav #navWrap{
-			width: 100%; height: 100%;
-			padding: 140px 0;
-		}
-		#back{
-			display: inline-block;
-			position: absolute;
-			left: 15%;
-		}
-		#back img{
-			display: block;
-			transition:.5s;
-		}
-		#back:hover img{
-			transform:rotate(180deg);
-		}
-		#logo{
-			display: inline-block;
-			position: absolute;
-			left: 50%;
-			transform:translateX(-50%);
-		}
-		.nav_menu{
-			width: 300px; height: 600px;
-			position: absolute;
-			left: 55%; top: 250px;
-			transform:translateX(-50%);
-		}
-		.nav_menu ul{width: 100%; height: 100%;}
-		.nav_menu ul li{
-			width: 100%;
-			height: 20%;
-		}
-		.nav_menu ul li a{
-			display: block;
-			width: 100%;
-			font-size:3rem;
-			color:#999;
-			line-height: 120px;
-			position: relative;
-			transition:.3s;
-		}
-		.nav_menu ul li a.active{
-			color:#fff;
-		}
-
-		.nav_menu ul li a .line{
-			display: inline-block;
-			width: 50px; height: 5px; background-color: #fff;
-			position: absolute;
-			top: 50%; left: -25px;
-			opacity:0;
-			transition:.3s;
-		}
-		.nav_menu ul li a span{transition:.3s;}
-
-
-		.nav_menu ul li a:hover{color:#fff;}
-		.nav_menu ul li a:hover .line{opacity:1;}
-		.nav_menu ul li a:hover span{padding-left: 20px;}
-
-		#fnbWrap{
-			width: 100%;
-			position: fixed;
-			bottom: 100px;
-			left:80px;
-			z-index: 1;
-		}
-		.fnb{width: 100%;}
-		.soundLp{
-			margin-left: -50px;
-			display: none;
-			animation:lp 1s infinite forwards alternate;
-		}
-		@keyframes lp{
-			from{transform:translateY(0);}
-			to{transform:translateY(-30px);}
-		}
-
-		.soundLp img{display: block;}
-
-		.soundWrap{position: fixed; bottom: 100px; left: 80px;}
-		.soundWrap:hover :after,
-		.reservWrap:hover :after{
-			content:"";
-			display: block;
-			width: 130px; height: 3px;
-			background-color: #fff;
-			position: absolute;
-			top: 50%;
-		}
-		.fnb .reservWrap{position: fixed; bottom: 100px; right: 80px;}
-		.fnb div a{color:#999; font-size: 1.4rem;}
-
-		#sBox,
-		#rBox{
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			bottom: 0;
-			z-index: 2;
-			display: none;
-		}
-		#sBox .sTitle,
-		#rBox .rTitle{
-			width: 100%;
-			font-size: 5rem;
-		    padding-left: 80px;
-		    font-weight: bold;
-		    color:#999;
-		    position: absolute;
-		    bottom: 50%
-		}
-		.sTitle .fnb_close,
-		.rTitle .fnb_close02{
-			position: absolute; left: 50%;
-			transform:translateX(-50%);
-		}
-		.sTitle .fnb_close img,
-		.rTitle .fnb_close02 img{
-			display: inline-block;
-			transition:.3s;
-		}
-		.sTitle .fnb_close:hover img,
-		.rTitle .fnb_close02:hover img{
-			transform:rotate(180deg);
-		}
-		#sBox .sContent,
-		#rBox .rContent{
-			width: 100%;
-			height: 50%; 
-			background-color: rgba(255,255,255,.8);
-			padding: 50px 0;
-			position: absolute;
-			bottom: 0;
-		}
-		#sBox .sContent >div,
-		#rBox .rContent >div{
-			float: left;
-		}
-		.sContent .play{
-			width: 30%; height: 400px;
-			background-color: #fff;
-			margin-left: 80px;
-		}
-		.sContent .list{
-			width: 60%; height: 400px;
-			background-color: #000;
-			margin-left: 50px;
-		}
-		.rContent div{width: 30%; height: 200px; margin-top: 200px;}
-		.rContent .cgv{margin-left: 80px;}
-		.rContent .lotte{margin-left: 25px;}
-		.rContent .megabox{margin-left: 25px;}
-
-		.charWrap{
-			width: 1000px; height: 100%; 
-			 margin: 0 auto;
-			_background-color: orange;
-			position: relative;
-		}
-
-		.fam{position: absolute; bottom: 0; left: 50%; transform:translateX(-50%);}
-		.famImg{display: block;}
-		.family{display: block;}
-		.char01{display: none;}
-		.char02{display: none;}
-		.char03{display: none;}
-		.char04{display: none;}
-		.char05{display: none;}
-		.char06{display: none;}
-		.char07{display: none;}
-		.char08{display: none;}
-
-		#click{
-			width: 50px height: 100px; 
-			_background-color: red; 
-			position: absolute; 
-			left: 50%;bottom: 100px;
-			transform:translateX(-50%);
-			color:#fff;
-			font-size:1.2rem;
-			font-weight: bold;
-			animation: arrowAni 1s infinite alternate forwards;
-			z-index: 5;
-		}
-		@keyframes arrowAni{
-			to{bottom: 120px;}
-		}
-
-		.arrow{
-			display: block;
-			position: absolute;
-			left: 50px;
-			transform:translateX(-50%);
-			padding-top: 20px;
-		}
-
-		.btnWrap{width: 100%;height: 683px;position: absolute;bottom: 0;}
-		.btnWrap01{position: absolute;width: 50px;height: 50px;bottom: 600px;left: 200px;}
-		.btnWrap02{position: absolute;width: 50px;height: 50px;bottom: 500px;left: 400px;}
-		.btnWrap03{position: absolute;width: 50px;height: 50px;bottom: 650px;left: 630px;}
-		.btnWrap04{position: absolute;width: 50px;height: 50px;bottom: 600px;left: 960px;}
-		.btnWrap05{position: absolute;width: 50px;height: 50px;bottom: 320px;left: 200px;}
-		.btnWrap06{position: absolute;width: 50px;height: 50px;bottom: 310px;left: 490px;}
-		.btnWrap07{position: absolute;width: 50px;height: 50px;bottom: 300px;left: 700px;}
-		.btnWrap08{position: absolute;width: 50px;height: 50px;bottom: 320px;left: 930px;}
-		.plus{
-			display: block;
-			position: absolute;
-			margin:7px;
-			/*top: 327px; left: 177px;*/
-			cursor:pointer;
-		}
-		.btn{
-			width:50px; height: 50px;
-			background-color: rgba(255,255,255,.5);
-			border-radius: 50%;
-			position: absolute;
-			/*top: 320px; left: 170px;*/
-			animation: btnAni 1s infinite alternate;
-			opacity:0;
-		}
-		@keyframes btnAni{
-			to{opacity:1;}
-		}
-
-			
-	</style>
 	<script>
 		$(document).ready(function(){
 			$("#fullPage").fullpage({
@@ -347,22 +33,19 @@
 						$("#onView03").removeClass("move");
 					}
 				}
+			});	
+			$(window).resize(function(){
+				sHeight();
 			});
-			// $(window).resize(function(){
-			// 	sHeight();
-			// });
 
-			// function sHeight(){
-			// 	var sHeight=$(window).height();
-			// 	$(".slider1").height(sHeight);
-			// 	console.log(sHeight);
-			// }
-			// sHeight();	
-			
-			$(".sliderWrap").bxSlider({
-				pager:false,
-			});
-			
+			function sHeight(){
+				var sHeight=$(window).height();
+				$(".sub_char").height(sHeight);
+				console.log(sHeight)
+			}
+			sHeight();	
+
+
 			var navMenu=$(".nav_menu>ul>li");
 			navMenu.click(function(){
 				var i=$(this).index();
@@ -422,6 +105,7 @@
 				console.log(i)
 				$('.viewer01 .slider').bxSlider({startSlide:i}).reloadSlider();
 			})
+
 			$(".viewer01 .close").click(function(){
 				$(".viewer01").hide();
 				window.location.reload();
@@ -518,20 +202,23 @@
 			<a href="" class="fnb_close02"><img src="images/fnb_close.png" alt=""></a>
 		</div>
 		<div class="rContent clearfix">
+			<!-- <div class="rName">
+				<img src="images/nav_title.png" alt="">
+			</div> -->
 			<div class="moviebox cgv">
-				<a href="#">
+				<a href="http://www.cgv.co.kr/search/?query=%uAE30%uC0DD%uCDA9" target="blank">
 					<img class="movie movie01" src="images/cgv.png" alt="">
 					<span>Get The Movie Schedule.</span>
 				</a>
 			</div>
 			<div class="moviebox lotte">
-				<a href="">
+				<a href="https://www.megabox.co.kr/movie-detail?rpstMovieNo=01550200" target="blank">
 					<img class="movie movie02" src="images/lotte.png" alt="">
 					<span>Get The Movie Schedule.</span>
 				</a>
 			</div>
 			<div class="moviebox megabox">
-				<a href="">
+				<a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/Schedule" target="blank">
 					<img class="movie movie03" src="images/megabox.png" alt="">
 					<span>Get The Movie Schedule.</span>
 				</a>
@@ -540,17 +227,43 @@
 	</div>
 
 	<style>
-		.moviebox{position: relative; padding: 20px 0; transition:.3s;}
-		.moviebox:hover{background-color: #fff;}
+		/*.rName{
+			position: absolute;
+			bottom: 200px;
+			left: 50%;
+			transform:translateX(-50%);
+		}
+		.rName img{
+			display: block; margin: 0 auto;
+			transform:scale(1.5);
+
+		}*/
+		.moviebox{
+			position: relative; 
+			padding: 20px 0;
+			background-color: rgba(0,0,0,.6);
+			border-radius: 20px;
+			transition:.3s;
+		}
+		.moviebox:hover{background-color: rgba(255,255,255,.8);}
 		.moviebox> a{display: block; width: 100%; height: 100%;}
 		.movie{position: absolute; display: block; left: 50%; transform:translateX(-50%);}
 		.megabox .movie{top: 70px;}
 		.moviebox span{
 			display: block;
 			width: 100%;
-			position: absolute; bottom: 10px; 
+			position: absolute; bottom: 30px;
+			opacity:0;
 			text-align: center;
 			font-size:1.5rem;
+			transition:.3s;
+		}
+		.moviebox:hover span{
+			animation: movieAni 1s forwards;
+
+		}
+		@keyframes movieAni{
+			to{bottom:10px; opacity:1;}
 		}
 
 	</style>
@@ -563,72 +276,103 @@
 			<div class="main" id="onView">
 				<h3>About</h3>
 			</div>
+			<div id="director">
+					<img src="images/director01.png" alt="">
+			</div>
+			<div id="oscars">
+				<img class="oscars01" src="images/oscars.png" alt="">
+				<img class="oscars02" src="images/oscars.png" alt="">
+				<img class="oscars03" src="images/oscars.png" alt="">
+				<img class="oscars04" src="images/oscars.png" alt="">
+			</div>
 		</div>
 		<div class="section page" id="page3" data-anchor="3st">
 			<div class="viewer01">
 				<div class="slider">
-					<div class="sub_char char0101"><img src="images/char0101.png" alt=""></div>
-					<div class="sub_char char0202"><img src="images/char0202.png" alt=""></div>
-					<div class="sub_char char0303"><img src="images/char0303.png" alt=""></div>
-					<div class="sub_char char0404"><img src="images/char0404.png" alt=""></div>
-					<div class="sub_char char0505"><img src="images/char0505.png" alt=""></div>
-					<div class="sub_char char0606"><img src="images/char0606.png" alt=""></div>
-					<div class="sub_char char0707"><img src="images/char0707.png" alt=""></div>
-					<div class="sub_char char0808"><img src="images/char0808.png" alt=""></div>
+					<div class="sub_char char0101">
+						<div class="sub_img">
+							<img src="images/char0101.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-송강호, 주연 - 기택 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0202">
+						<div class="sub_img">
+							<img src="images/char0202.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-정지소, 조연 - 다혜 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0303">
+						<div class="sub_img">
+							<img src="images/char0303.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-이선균, 주연 - 동익 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char00404">
+						<div class="sub_img">
+							<img src="images/char0404.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-최우식, 주연 - 기우 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0505">
+						<div class="sub_img">
+							<img src="images/char0505.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-박소담, 주연 -기정 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0606">
+						<div class="sub_img">
+							<img src="images/char0606.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>조여정, 주연 - 연교 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0707">
+						<div class="sub_img">
+							<img src="images/char0707.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-정현준, 조연 - 다송 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+					<div class="sub_char char0808">
+						<div class="sub_img">
+							<img src="images/char0808.png" alt="">
+						</div>
+						<div class="sub_text">
+							<h3>"아들아 역시 너는 <br>계획이 다 있구나!"</h3>
+							<p>-장혜진, 주연 - 충숙 역</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptates,<br>odio omnis fugiat veritatis ipsum neque fuga eligendi explicabo amet, excepturi ab alias. <br> Sequi accusamus, at dolore ut, ex nihil.</p>
+						</div>
+					</div>
+
 				</div>
-				<span class="close">닫기</span>
+				<div class="close"><img src="images/close.png" alt=""></div>
 			</div>
-<style>
-	.bx-wrapper {
-	    -moz-box-shadow: none;
-	    -webkit-box-shadow: none; 
-	    box-shadow: none; 
-	    border: none; 
-	    background: none; 
-	    padding-top:173px;
-	}
-	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
-	    position: absolute;
-	    width: 160px;
-	    left:50%;
-	    transform:translateX(-50%);
-	    bottom: 200px;
-	}
-	.viewer01{
-		width: 100%;height: 100%; 
-		position: absolute;
-		z-index:9999;
-		background-image: url(images/fullpage03_sub_bg.JPG);
-		background-position: center;
-		background-size: cover;
-	}
-	.slider{width: 100%; height: 100%; background-color: red;}
-	.viewer01 .close{position: absolute;top:50%;right: 0;z-index:999999; color:#fff;}
-
-	.sub_char{padding-left: 1000px;}
-
-
-	#fp-nav{margin-top: 0; top: 0; left: 50%; transform:translateX(-50%);}
-	#fp-nav ul, .fp-slidesNav ul{display:flex;}
-	#fp-nav ul li, .fp-slidesNav ul li{width: 100px;}
-
-	#fp-nav ul li a span, .fp-slidesNav ul li a span{background:none;}
-
-	#fp-nav ul li a span, .fp-slidesNav ul li a span{
-		    background: none;
-		background-image: url(images/lights_off01.png);
-		background-position:center;
-		background-repeat:no-repeat;
-		background-size: cover;
-		height: 140px;
-		width: 100px;
-	}
-	#fp-nav ul li a.active span, 
-	.fp-slidesNav ul li a.active span{
-		background-image: url(images/lights_on01.png);
-	}
-
-</style>
 
 
 			<div class="main" id="onView03">
