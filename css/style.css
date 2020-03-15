@@ -32,6 +32,7 @@
 		}
 		#page2{background-image: url(../images/fullpage020202.jpg);}
 		#page3{background-image: url(../images/fullpagebg0303.jpg); overflow:hidden;}
+		#page5{background-image: url(../images/fullpagebg05.jpg); overflow:hidden; }
 		.page{
 			background-repeat: no-repeat;
 			background-position:center;
@@ -63,10 +64,17 @@
 		.main >h3{font-size: 1.5rem;}
 		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}
 		.main >a:hover{background-color: #fff; color:#000;}
-		#onView{top: 0; transition:.3s; opacity:0;}
-		#onView.move{top: 15%; opacity:1;}
-		#onView03{top: 0; transition:.3s; opacity:0; z-index: 10;}
-		#onView03.move{top: 15%; opacity:1;}
+
+		#onView,
+		#onView03,
+		#onView04{
+			top: 0; transition:.3s; opacity:0; z-index: 10;
+		}
+		#onView.move,
+		#onView03.move,
+		#onView04.move{
+			top: 15%; opacity:1;
+		}
 		#myVideo{
 			position: absolute;
 			bottom: 0; top: 0; right: 0;
@@ -200,7 +208,7 @@
 			font-size: 5rem;
 		    padding-left: 80px;
 		    font-weight: bold;
-		    color:#999;
+		    color:#fff;
 		    position: absolute;
 		    bottom: 50%
 		}
@@ -253,9 +261,80 @@
 		.rContent .megabox{margin-left: 25px;}
 /*fullpage02*/
 		
-		#director{position: absolute; right: 0; bottom: 0;}
-		#oscars{position: absolute; left: 80px; bottom: 0;}
+		#director{
+			position: absolute; 
+			right: -800px; bottom: 0;
+		}
+		#director img{display: block;}
+		#director.bong{
+			animation:bongAni 1s forwards;
+		}
+		@keyframes bongAni{
+			to{right: 0;}
+		}
+		#oscars{
+			width: 920px; height: 700px; 
+			position: relative; left: 80px; bottom: 0;
+			margin-top: 300px;
+		}
+		.oscars01Wrap{
+			width: 230px; height: 700px;
+			position: absolute; left: 0; bottom: 0;
+			display: inline-block;
+		}
+		.gold_btn{
+			display: block; 
+			width: 230px; 
+			padding-right: 80px;
+			position: absolute; 
+			left: 0; bottom: 0;
+		}
+		.gold{
+			display:inline-block;
+			}
+		.o_arrowWrap{
+			width: 100px; height: 100px;
+			position: absolute; top: 0; left: 28px;
+			animation: o_arrowAni 1s 3.4s infinite forwards alternate;
+			opacity:0;
+		}
+		@keyframes o_arrowAni{
+			from{top: 0; opacity:1;}
+			to{top: 50px; opacity:1;}
+		}
+		.o_arrowWrap span{display: block; color:#fff;}
+		.o_arrow{
+			display: block; 
+			position: absolute; 
+			top: 0; left: 0;
 
+		}
+
+		.oscars02Wrap{
+			width: 230px; height: 700px;
+			position: absolute; left: 0; bottom: 0;
+			animation: oscars02Ani 1s 2.2s forwards;
+		}
+		@keyframes oscars02Ani{
+			to{left: 230px;}
+		}
+		.oscars03Wrap{
+			width: 230px; height: 700px;
+			position: absolute; left: 0; bottom: 0;
+			animation: oscars03Ani 1s 2.7s forwards;
+		}
+		@keyframes oscars03Ani{
+			to{left: 460px;}
+		}
+		.oscars04Wrap{
+			width: 230px; height: 700px;
+			position: absolute; left: 0; bottom: 0;
+			animation: oscars04Ani 1s 3.2s forwards;
+		}
+		@keyframes oscars04Ani{
+			to{left: 690px;}
+		}
+		
 /*fullpage03*/
 
 		.charWrap{
@@ -407,4 +486,4 @@
 		background-image: url(../images/lights_on01.png);
 	}
 
-</style>
+</style>page

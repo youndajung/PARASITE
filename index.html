@@ -24,13 +24,20 @@
 					// console.log(anchorslink+","+index);
 					if(index==2){
 						$("#onView").addClass("move");
+						$("#director").addClass("bong");
 					}else{
 						$("#onView").removeClass("move");
+						$("director").removeClass("bong");
 					};
 					if(index==3){
 						$("#onView03").addClass("move");
 					}else{
 						$("#onView03").removeClass("move");
+					}
+					if(index==4){
+						$("#onView04").addClass("move");
+					}else{
+						$("#onView04").removeClass("move");
 					}
 				}
 			});	
@@ -118,6 +125,31 @@
 				$("#fp-nav ul li a").removeClass("active").eq(spanNum).addClass("active");
 				$(".fp-slidesNav ul li a").removeClass("active").eq(span01Num).addClass("active");
 			});
+
+			
+			// $("#oscars div").click(function(){
+			// 	var i=$(this).index();
+			// 	$("#oscars div").hide().eq(i).show();
+			// 	$("#oscars_text").eq(i).show();
+
+			// 	$(".text_close").click(function(){
+			// 		$("#oscars_text").eq(i).hide();
+			// 		$("#oscars div").show();
+			// 	});
+
+			// });
+			$(".oscars01Wrap").click(function(){
+				$("#oscars div").hide();
+				$(".oscars01Wrap").show();
+				$("#o_text01Wrap").show();
+				$(".text_close").click(function(){
+					$("#o_text01Wrap").hide();
+					$("#oscars div").show();
+				});
+			});//수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+
+			
+
 
 		});
 	</script>
@@ -236,7 +268,6 @@
 		.rName img{
 			display: block; margin: 0 auto;
 			transform:scale(1.5);
-
 		}*/
 		.moviebox{
 			position: relative; 
@@ -280,12 +311,136 @@
 					<img src="images/director01.png" alt="">
 			</div>
 			<div id="oscars">
-				<img class="oscars01" src="images/oscars.png" alt="">
-				<img class="oscars02" src="images/oscars.png" alt="">
-				<img class="oscars03" src="images/oscars.png" alt="">
-				<img class="oscars04" src="images/oscars.png" alt="">
+
+				<div class="oscars01Wrap">
+					<div class="o_arrowWrap">
+						<img clas="o_arrow" src="images/down_arrow.png" alt="">
+						<span>Director</span>
+					</div>
+					<a href="#2st" class="gold_btn">
+						<img class="gold oscars01" src="images/oscars.png" alt="">
+					</a>
+				</div>
+				<div class="oscars02Wrap">
+					<div class="o_arrowWrap">
+						<img clas="o_arrow" src="images/down_arrow.png" alt="">
+						<span>Movie</span>
+					</div>
+					<a href="#2st" class="gold_btn">
+						<img class="gold" src="images/oscars.png" alt="">
+					</a>
+				</div>
+				<div class="oscars03Wrap">
+					<div class="o_arrowWrap">
+						<img clas="o_arrow" src="images/down_arrow.png" alt="">
+						<span>Awards</span>
+					</div>
+					<a href="#2st" class="gold_btn"><img class="gold" src="images/oscars.png" alt=""></a>
+				</div>
+				<div class="oscars04Wrap">
+					<div class="o_arrowWrap">
+						<img clas="o_arrow" src="images/down_arrow.png" alt="">
+						<span>Critism Of Riview</span>
+					</div>
+					<a href="#2st" class="gold_btn"><img class="gold" src="images/oscars.png" alt=""></a>
+				</div>
 			</div>
+			<div id="oscars_text">
+				<div id="o_text01Wrap">
+					<div class="text_close">
+						<img src="images/close.png" alt="">
+					</div>
+					<h3>Director</h3>
+					<p>Bong Jun Ho</p>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus vero dolorem quia accusantium, vel vitae consectetur deleniti debitis doloribus beatae harum excepturi facilis pariatur, consequatur eaque dicta. Dolore, a aut.
+					</span><br>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem culpa molestiae quasi omnis voluptate eos officia quis eius optio, consequatur quas tempore libero hic, quo voluptates nisi repudiandae, nemo. Tempora quia repellendus odio nam similique tempore facilis, non odit numquam iure est fuga reprehenderit dicta voluptates dolore, asperiores dolor nisi.
+					</span><br>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus vero dolorem quia accusantium, vel vitae consectetur deleniti debitis doloribus beatae harum excepturi facilis pariatur, consequatur eaque dicta. Dolore, a aut.
+					</span>
+				</div>
+				<div id="o_text02Wrap">
+					<div class="text_close">
+						<img src="images/close.png" alt="">
+					</div>
+					<h3>Movie</h3>
+					<p>기생충(PARASITE,2019)</p>
+					<span>
+					개봉 2019.05.30
+					</span><br>
+					<span>
+					등급 15세 관람가
+					</span><br>
+					<span>
+					장르 드라마
+					</span>
+					<span>
+					국가 한국
+					</span><br>
+					<span>
+					러닝타임 131분
+					</span><br>
+					<span>
+					배급 CJ 엔터테인먼트
+					</span>
+				</div>
+			</div>
+<style>
+	#oscars_text{
+		position: absolute;
+		bottom: 0; left: 230px;
+		width: 900px; height: 700px;
+	}
+	#o_text01Wrap,
+	#o_text02Wrap{
+		width: 900px; height: 700px; 
+		z-index: 9999; 
+		background-color: rgba(0,0,0,.5);
+		text-align: left;
+		padding: 50px 50px;
+		color:#fff;
+		display: none;
+		transition:1s;
+		position: absolute;
+	}
+	#O_text02Wrap{opacity:1;}
+	.text_close{
+		position: absolute;
+		right: 50px; top: 50px;
+		cursor:pointer;
+	}
+	#o_text01Wrap h3,
+	#o_text02Wrap h3{
+		font-size:4rem;
+		padding-bottom: 50px;
+	}
+	#o_text01Wrap p,
+	#o_text02Wrap p{
+		font-size:3rem;
+		color:#ddd;
+		padding-bottom: 20px;
+	}
+	#o_text01Wrap span{
+		display: block;
+		font-size:1rem;
+		color:#ddd;
+		padding-bottom: 20px;
+	}
+	#o_text02Wrap span{
+		display: block;
+		font-size:1rem;
+		color:#ddd;
+		padding-bottom: 10px;
+	}
+</style>
+
 		</div>
+
+
+
 		<div class="section page" id="page3" data-anchor="3st">
 			<div class="viewer01">
 				<div class="slider">
@@ -430,17 +585,72 @@
 					</div>
 				</div>
 				
-			</div>
-
-			
+			</div>	
 		</div>
 
 		<div class="section page" id="page4" data-anchor="4st">
+			<div class="main" id="onView04">
+				<h3>Trailer</h3>
+			</div>
 			<video id="myVideo" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
 		</div>
 		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
-			5
+			<div class="g_center">
+				<h1 class="g_title">Gallery</h1>
+			</div>
+				<div class="g_img" overflow:auto>
+					<a href="#" class="gal_btn gal_btn01">
+						<img src="images/이미지 165.png" alt="">
+					</a>
+					<a href="#" class="gal_btn gal_btn02">
+						<img src="images/이미지 149.png" alt="">
+					</a>
+					<a href="#" class="gal_btn gal_btn03">
+						<img src="images/이미지 252.png" alt="">
+					</a>
+					<div style="height: 200px;"></div>
+					<a href="#" class="gal_btn gal_btn04">
+						<img src="images/img165.png" alt="">
+					</a>
+				</div>
 		</div>
+<style>
+	.g_center{
+		width: 500px; height: 500px;
+		position:absolute; left: 35%; bottom: 250px;
+		transform:translateX(-50%);
+		transform:rotate(-90deg);
+	}
+	.g_title{
+		font-size: 8rem;
+		text-align: center;
+		line-height: 500px;
+		color:#999;
+	}
+	.gal_btn{
+		display: block;
+		width: 500px; height: 400px;
+		overflow:hidden;
+		position: absolute;
+		z-index: 999;
+	}
+	.g_img{
+		background-color: orange;
+
+	}
+	.gal_btn01{
+		left: 80px; top: 300px;
+	}
+	.gal_btn02{
+		left: 300px; top: 500px;
+	}
+	.gal_btn03{
+		left: 1200px; top: 400px;
+	}
+	.gal_btn04{
+		left: 200px; top: 800px;
+	}
+</style>
 	</div>
 </body>
 </html>
