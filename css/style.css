@@ -52,7 +52,6 @@
 			from{bottom:20px;}
 			to{bottom: 40px;}
 		}
-		#tnb .active{background-color: orange;}
 
 		.main{
 			width: 400px;
@@ -92,7 +91,7 @@
 			background-position: center center;
 			object-fit:cover;
 			z-index: 3;
-			transition:2s;
+			transition:3s;
 		}
 		.section.active #myVideo4{
 			width: 75%; height: 60%;
@@ -343,7 +342,7 @@
 			padding-bottom: 5px;
 		}
 		.awards_listWrap{position: relative; width: 800px; height: 400px;}
-		.awards_list{width: 50%; background-color: red;position: absolute}
+		.awards_list{width: 50%; position: absolute}
 		.awards_list:nth-child(2){right: 0;}
 
 
@@ -556,4 +555,4 @@
 		background-image: url(../images/lights_on01.png);
 	}
 
-</style>page
+</style>awards_listWrap

@@ -48,7 +48,7 @@
 			function sHeight(){
 				var sHeight=$(window).height();
 				$(".sub_char").height(sHeight);
-				console.log(sHeight)
+				console.log(sHeight);
 			}
 			sHeight();	
 
@@ -62,9 +62,11 @@
 
 			$("#menu").click(function(){
 				$("#nav").fadeIn();
-				$("#back").click(function(){
+				$("#back").click(function(e){
 					$("#nav").hide();
+					e.preventDefault();
 				});
+
 			});
 			$(".soundWrap").hover(function(){
 				$(".soundLp").fadeIn();
@@ -74,14 +76,16 @@
 			$(".soundWrap").click(function(){
 				$(".soundLp").hide();
 				$("#sBox").fadeIn();
-				$(".fnb_close").click(function(){
+				$(".fnb_close").click(function(e){
 					$("#sBox").hide();
+					e.preventDefault();
 				});
 			});
 			$(".reservWrap").click(function(){
 				$("#rBox").fadeIn();
-				$(".fnb_close02").click(function(){
+				$(".fnb_close02").click(function(e){
 					$("#rBox").hide();
+					e.preventDefault();
 				});
 			});
 
@@ -113,9 +117,10 @@
 				$('.viewer01 .slider').bxSlider({startSlide:i}).reloadSlider();
 			})
 
-			$(".viewer01 .close").click(function(){
+			$(".viewer01 .close").click(function(e){
 				$(".viewer01").hide();
-				window.location.reload();
+				e.preventDefault();
+
 				
 			});
 			$("#fp-nav ul li a span,.fp-slidesNav ul li a span").click(function(){
@@ -129,10 +134,10 @@
 				$("#oscars div").hide();
 				$(".oscars01Wrap").show();
 				$("#o_text01Wrap").show();
-				$(".text_close").click(function(){
+				$(".text_close").click(function(e){
 					$("#o_text01Wrap").hide();
 					$("#oscars div").show();
-					window.location.reload();
+					e.preventDefault();
 				});
 			});//수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 			$(".oscars02Wrap").click(function(){
@@ -140,22 +145,22 @@
 				$(".oscars02Wrap").show();
 				$("#o_text02Wrap").show();
 				$(".section").addClass("mLeft");
-				$(".text_close").click(function(){
+				$(".text_close").click(function(e){
 					$("#o_text02Wrap").hide();
 					$("#oscars div").show();
 					$(".section").removeClass("mLeft");
-					window.location.reload();
+					e.preventDefault();
 				});
 			});
 			$(".oscars03Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars03Wrap").show();
 				$("#o_text03Wrap").show();
-				$(".text_close").click(function(){
+				$(".text_close").click(function(e){
 					$("#o_text03Wrap").hide();
 					$("#oscars div").show();
 					$(".section").removeClass("mLeft");
-					window.location.reload();
+					e.preventDefault();
 				});
 			});
 
@@ -238,6 +243,35 @@
 				var imgNum=$(".play > img");
 				imgNum.removeClass("active").eq(btnNum+4).addClass("active");
 			});
+			$(".btn_img").click(function(){
+				var btn=$("#more_btnWrap");
+				var video=$("#more_video");
+				btn.addClass("active");
+				video.addClass("active");
+				$(".more_btn>p").html("close");
+				$(this).click(function(){
+					btn.removeClass("active");
+					video.removeClass("active");
+					window.location.reload();
+				});
+			});
+			var btn=$("#more_btnWrap");
+			var video=$("#more_video");
+			$(".video01").click(function(){
+				$("#myVideo4").attr({"src":"images/trailer.mp4"});
+				btn.removeClass("active");
+					video.removeClass("active");
+			});
+			$(".video02").click(function(){
+				$("#myVideo4").attr({"src":"images/trailer02.mp4"});
+				btn.removeClass("active");
+					video.removeClass("active");
+			});
+			$(".video03").click(function(){
+				$("#myVideo4").attr({"src":"images/trailer03.mp4"});
+				btn.removeClass("active");
+					video.removeClass("active");
+			});//여기까지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 
 		});
 	</script>
@@ -776,12 +810,18 @@
 					<img src="images/trailer01.jpg" alt="">
 					<p>기생충 예고편 #1</p>
 				</div>
-				<div class="video02">Trailer02
+				<div class="video02">
+					<img src="images/trailer01.jpg" alt="">
+					<p>기생충 예고편 #2</p>
 				</div>
-				<div class="video03">Trailer03
+				<div class="video03">
+					<img src="images/trailer01.jpg" alt="">
+					<p>기생충 캐릭터영상 #3</p>
 				</div>
 			</div>
-			<video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
+			<video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer.mp4" type="video/mp4"></video>
+			<!-- <video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
+			<video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer03.mp4" type="video/mp4"></video> -->
 		</div>
 
 <!-- fullpage5 -->
@@ -800,15 +840,11 @@
 					<img src="images/이미지 252.png" alt="">
 				</a>
 				<a href="#" class="gal_btn gal_btn04">
-					<img src="images/img165.png" alt="">
+					<img src="images/이미지 165.png" alt="">
 				</a>
 			</div>
 		</div>
 	</div>
-
-
-
-
 		<audio id="audio01" src="radio/radio01.mp3"></audio>
 		<audio id="audio02" src="radio/radio02.mp3"></audio>
 		<audio id="audio03" src="radio/radio03.mp3"></audio>
@@ -824,44 +860,66 @@
 		top: 50%;
 		transform:translateY(-50%);
 		z-index: 99999;
+		transition:.1s;
 	}
+	#more_btnWrap.active{
+		position: absolute; right: 32%;
+	}
+	#more_btnWrap.active:hover .btn_img{
+		transform:rotate(180deg);
+	}
+
 	.more_btn{position: relative; width: 170px;}
 	.more_btn p{
 		position: absolute; left: 0;
 		line-height: 100px;
 		color:#fff;
 		font-size: 1.4rem;
+		transition:.3s;
 	}
 	.btn_img{
 		position: absolute; right: 0; 
 		cursor:pointer;
+		transition:.3s;
 	}
 	.btn_img img{
 		display: block;
+
 	}
 	#more_video{
 		height: 100%; width: 30%;
 		z-index: 99999;
 		background-color: rgba(0,0,0,.5);
 		position: absolute;
-		right: 0;top: 0;
+		right: -30%; top: 0;
+		transition:1s;
 	}
+	#more_video.active{
+		position: absolute; right: 0;
+	}
+	
 	#more_video >p{
-		font-size: 1rem;
+		font-size: 1.4rem;
 		color:#fff;
 		margin: 0 auto;
-		background-color: red;
 		text-align: bottom;
-		padding-top: 140px;
-		padding-bottom: 30px;
+		padding-top: 20%;
+		padding-bottom: 10%;
 	}
+	
+	
 	#more_video div{
-		width: 400px; height: 20%;
-		background-color: orange;
+		width: 60%; height: 20%;
 		margin-bottom: 50px;
-		margin-left: 100px;
+		margin-left: 20%;
 		color:#ddd;
+		cursor:pointer;
 	}
+	#more_video div >img{
+		display: block; height: 100%;
+		margin: 0 auto;
+	}
+
 	.g_center{
 		width: 500px; height: 500px;
 		position:absolute; left: 35%; bottom: 250px;
