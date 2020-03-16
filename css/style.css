@@ -59,7 +59,6 @@
 			position: absolute; left: 50%; color:#fff;
 			transform:translate(-50%,-50%);
 			text-align: center;
-			_background-color: red;
 		}
 		.main >h3{font-size: 1.5rem;}
 		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}

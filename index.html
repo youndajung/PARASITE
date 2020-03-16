@@ -771,8 +771,10 @@
 				</div>
 			</div>
 			<div id="more_video">
-
-				<div class="video01">Trailer01
+				<p>More Trailer</p>
+				<div class="video01">
+					<img src="images/trailer01.jpg" alt="">
+					<p>기생충 예고편 #1</p>
 				</div>
 				<div class="video02">Trailer02
 				</div>
@@ -781,42 +783,7 @@
 			</div>
 			<video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
 		</div>
-<style>
-	#more_btnWrap{
-		position: absolute;
-		right: 80px;
-		top: 50%;
-		transform:translateY(-50%);
-		z-index: 99999;
-	}
-	.more_btn{position: relative; width: 170px;}
-	.more_btn p{
-		position: absolute; left: 0;
-		line-height: 100px;
-		color:#fff;
-		font-size: 1.4rem;
-	}
-	.btn_img{
-		position: absolute; right: 0; 
-		cursor:pointer;
-	}
-	.btn_img img{
-		display: block;
-	}
-	#more_video{
-		height: 100%; width: 30%;
-		z-index: 99999;
-		background-color: rgba(0,0,0,.5);
-		position: absolute;
-		right: 0;top: 0;
-	}
-	#more_video div{
-		width: 300px; height: 20%;
-		background-color: orange;
-		margin: 15% auto;
-		color:#ddd;
-	}
-</style>
+
 <!-- fullpage5 -->
 		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
 			<div class="g_center">
@@ -847,7 +814,54 @@
 		<audio id="audio03" src="radio/radio03.mp3"></audio>
 		<audio id="audio04" src="radio/radio04.mp3"></audio>
 		<audio id="audio05" src="radio/radio05.mp3"></audio>
+
+
+		
 <style>
+	#more_btnWrap{
+		position: absolute;
+		right: 80px;
+		top: 50%;
+		transform:translateY(-50%);
+		z-index: 99999;
+	}
+	.more_btn{position: relative; width: 170px;}
+	.more_btn p{
+		position: absolute; left: 0;
+		line-height: 100px;
+		color:#fff;
+		font-size: 1.4rem;
+	}
+	.btn_img{
+		position: absolute; right: 0; 
+		cursor:pointer;
+	}
+	.btn_img img{
+		display: block;
+	}
+	#more_video{
+		height: 100%; width: 30%;
+		z-index: 99999;
+		background-color: rgba(0,0,0,.5);
+		position: absolute;
+		right: 0;top: 0;
+	}
+	#more_video >p{
+		font-size: 1rem;
+		color:#fff;
+		margin: 0 auto;
+		background-color: red;
+		text-align: bottom;
+		padding-top: 140px;
+		padding-bottom: 30px;
+	}
+	#more_video div{
+		width: 400px; height: 20%;
+		background-color: orange;
+		margin-bottom: 50px;
+		margin-left: 100px;
+		color:#ddd;
+	}
 	.g_center{
 		width: 500px; height: 500px;
 		position:absolute; left: 35%; bottom: 250px;
