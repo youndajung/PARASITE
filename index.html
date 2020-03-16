@@ -118,7 +118,6 @@
 				window.location.reload();
 				
 			});
-			// #fp-nav ul li a span, .fp-slidesNav ul li a span.active
 			$("#fp-nav ul li a span,.fp-slidesNav ul li a span").click(function(){
 				var spanNum=$("#fp-nav ul li a.active").index();
 				var span01Num=$(".fp-slidesNav ul li a.active").index();
@@ -126,18 +125,6 @@
 				$(".fp-slidesNav ul li a").removeClass("active").eq(span01Num).addClass("active");
 			});
 
-			
-			// $("#oscars div").click(function(){
-			// 	var i=$(this).index();
-			// 	$("#oscars div").hide().eq(i).show();
-			// 	$("#oscars_text").eq(i).show();
-
-			// 	$(".text_close").click(function(){
-			// 		$("#oscars_text").eq(i).hide();
-			// 		$("#oscars div").show();
-			// 	});
-
-			// });
 			$(".oscars01Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars01Wrap").show();
@@ -145,11 +132,112 @@
 				$(".text_close").click(function(){
 					$("#o_text01Wrap").hide();
 					$("#oscars div").show();
+					window.location.reload();
 				});
 			});//수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+			$(".oscars02Wrap").click(function(){
+				$("#oscars div").hide();
+				$(".oscars02Wrap").show();
+				$("#o_text02Wrap").show();
+				$(".section").addClass("mLeft");
+				$(".text_close").click(function(){
+					$("#o_text02Wrap").hide();
+					$("#oscars div").show();
+					$(".section").removeClass("mLeft");
+					window.location.reload();
+				});
+			});
+			$(".oscars03Wrap").click(function(){
+				$("#oscars div").hide();
+				$(".oscars03Wrap").show();
+				$("#o_text03Wrap").show();
+				$(".text_close").click(function(){
+					$("#o_text03Wrap").hide();
+					$("#oscars div").show();
+					$(".section").removeClass("mLeft");
+					window.location.reload();
+				});
+			});
+
+			$(window).scroll(function(){
+             $(".section").each(function(index){
+                var scrollY=$("html").scrollTop();
+                var secList=$(".section");
+                if(scrollY>=secList.eq(index).offset().top-100){
+                   $(".section").removeClass("active").eq(index).addClass("active");
+                }
+             });
+          });
+
+			var audio01=document.getElementById("audio01");
+			var audio02=document.getElementById("audio02");
+			var audio03=document.getElementById("audio03");
+			var audio04=document.getElementById("audio04");
+			var audio05=document.getElementById("audio05");
+
 
 			
-
+			$(".audio_btn01").click(function(e){
+				audio02.pause();
+				audio03.pause();
+				audio04.pause();
+				audio05.pause();
+				audio01.play();
+				$(".list a").removeClass("active");
+				$(this).addClass("active");
+				e.preventDefault();
+			});
+			$(".audio_btn02").click(function(e){
+				audio01.pause();
+				audio03.pause();
+				audio04.pause();
+				audio05.pause();
+				audio02.play();
+				$(".list a").removeClass("active");
+				$(this).addClass("active");
+				e.preventDefault();
+			});
+			$(".audio_btn03").click(function(e){
+				audio01.pause();
+				audio02.pause();
+				audio04.pause();
+				audio05.pause();
+				audio03.play();
+				$(".list a").removeClass("active");
+				$(this).addClass("active");
+				e.preventDefault();
+			});
+			$(".audio_btn04").click(function(e){
+				audio01.pause();
+				audio02.pause();
+				audio03.pause();
+				audio05.pause();
+				audio04.play();
+				$(".list a").removeClass("active");
+				$(this).addClass("active");
+				e.preventDefault();
+			});
+			$(".audio_btn05").click(function(e){
+				audio01.pause();
+				audio02.pause();
+				audio03.pause();
+				audio04.pause();
+				audio05.play();
+				$(".list a").removeClass("active");
+				$(this).addClass("active");
+				e.preventDefault();
+			});
+			
+			$(".list_sec01>a").click(function(){
+				var btnNum=$(".list_sec01>a.active").index();
+				var imgNum=$(".play > img");
+				imgNum.removeClass("active").eq(btnNum).addClass("active");
+			});
+			$(".list_sec02>a").click(function(){
+				var btnNum=$(".list_sec02>a.active").index();
+				var imgNum=$(".play > img");
+				imgNum.removeClass("active").eq(btnNum+4).addClass("active");
+			});
 
 		});
 	</script>
@@ -225,10 +313,102 @@
 			<a href="" class="fnb_close"><img src="images/fnb_close.png" alt=""></a>
 		</div>
 		<div class="sContent clearfix">
-			<div class="play"></div>
-			<div class="list"></div>
+			<div class="play">
+				<img class="active" src="images/sound_lp01.png" alt="">
+				<img src="images/sound_lp02.png" alt="">
+				<img src="images/sound_lp03.png" alt="">
+				<img src="images/sound_lp04.png" alt="">
+				<img src="images/sound_lp05.png" alt="">
+			</div>
+			<div class="list">
+				<div class="list_sec01">
+					<a class="audio_btn01" href="">01. 시작</a>
+					<a class="audio_btn02" href="">02. 첫번째 알선</a>
+					<a class="audio_btn03" href="">03. 부잣집 가는 길</a>
+					<a class="audio_btn04" href="">04. 두번째 알선</a>
+					<span>05. 매실청</span>
+					<span>06. 윤기사와 박사장</span>
+					<span>07. 세번째 알선</span>
+				</div>
+				<div class="list_sec02">
+					<a class="audio_btn05" href="">08. 믿음의 벨트</a>
+					<span>09. 떠나는 문광</span>
+					<span>10. 야영</span>
+					<span>11. 지옥의 문</span>
+					<span>12. 부부의 사연</span>
+					<span>13. 짜파구리</span>
+					<span>14. 유령</span>
+				</div>
+				<div class="list_sec03">
+					<span>15. 첫번째 동분서주</span>
+					<span>16. 두번째 동분서주</span>
+					<span>17. 기택의 전두엽</span>
+					<span>18. 물바다</span>
+					<span>19. 또 물바다</span>
+					<span>20. 일요일 아침</span>
+					<span>21. 피와 칼</span>
+				</div>
+				<div class="list_sec04">
+					<span>22. 야산</span>
+					<span>23. 이사 </span>
+					<span>24. 끝</span>
+					<span>25. 소주 한 잔</span>
+				</div>
+			</div>
 		</div>
 	</div>
+<style>
+	.play img{
+		display: block;
+		margin: 0 auto;
+		width: 80%;
+		padding-top: 50px;
+		position: absolute;
+		top: 50%; left: 50%;
+		opacity:0;
+		transition:.3s;
+		transform:translate(-50%,-50%);
+	}
+	.play img.active{
+		transform:translate(-50%,-60%);
+		opacity:1;
+	}
+	.list{
+		display:flex;
+		justify-content: space-around;
+	}
+	.list div{
+		margin-top: 30px;
+		width: 25%; height: 80%;
+
+
+	}
+	.list div a{
+		display:block;
+		color:#666;
+		font-weight: bold;
+		position: relative;
+		padding-bottom: 20px;
+	}
+	.list div a:after{
+		content:"";
+		display: block;
+		width: 0px; height: 2px;
+		background-color: #000;
+		position: absolute;
+		top: 10px;
+		transition:.3s;
+	}
+	.list div a.active:after{
+		width: 150px;
+	}
+	.list div span{
+		display: block;
+		color:#999;
+		padding-bottom: 20px;
+	}
+
+</style>	
 	<div id="rBox">
 		<div class="rTitle">Reservation
 			<a href="" class="fnb_close02"><img src="images/fnb_close.png" alt=""></a>
@@ -303,6 +483,7 @@
 		<div class="section page" id="page1" data-anchor="1st">
 			<video id="myVideo" data-autoplay muted autoplay loop><source src="images/trailer.mp4" type="video/mp4"></video>
 		</div>
+<!-- fullpage2 -->
 		<div class="section page" id="page2" data-anchor="2st">
 			<div class="main" id="onView">
 				<h3>About</h3>
@@ -387,60 +568,49 @@
 					배급 CJ 엔터테인먼트
 					</span>
 				</div>
+				<div id="o_text03Wrap">
+					<div class="text_close">
+						<img src="images/close.png" alt="">
+					</div>
+					<h3>Awards</h3>
+					<div class="awards_listWrap">
+						<div class="awards_list">
+							<span>45회 세자르영화제(외국어영화상)</span><br>
+							<span>92회 미국 아카데미 시상식(작품상, 감독상, 각본상, 국제장편영화상)</span><br>
+							<span>73회 영국 아카데미 시상식(각본상, 외국어영화상)</span><br>
+							<span>72회 미국 작가 조합상(각본상)</span><br>
+							<span>40회 런던 비평가 협회상(작품상, 감독상)</span><br>
+							<span>49회 로테르담 국제영화제(관객상)</span><br>
+							<span>26회 미국 배우 조합상(영화부문 앙상블상)</span><br>
+							<span>35회 산타바바라 국제영화제(감독상)</span><br>
+							<span>25회 크리틱스 초이스 시상식(감독상, 외국어 영화상)</span><br>
+							<span>77회 골든 글로브 시상식(외국어 영화상)</span><br>
+							<span>54회 전미 비평가 협회상(작품상, 각본상)</span><br>
+							
+							<span>31회 팜스프링스 국제영화제(국제비평가협회(FIPRESCI) 각본상)</span><br>
+							<span>32회 시카고 비평가 협회상(작품상, 감독상, 각본상, 외국어영화상)</span><br>
+							<span>20회 부산영화평론가협회상(여자연기자상)</span><br>
+							<span>19회 디렉터스 컷 시상식(올해의 감독상, 올해의 각본상, 올해의 남자배우상, 올해의 새로운 남자배우상)</span><br>
+						</div>
+						<div class="awards_list">
+							<span>45회 LA 비평가 협회상(작품상, 감독상, 남우조연상)</span><br>
+							<span>84회 뉴욕 비평가 협회상(외국영화상)</span><br>
+							<span>13회 아시아 태평양 스크린 어워드(최우수 작품상)</span><br>
+							<span>40회 청룡영화상(최우수 작품상, 감독상, 여우주연상, 여우조연상, 미술상)</span><br>
+							<span>39회 한국영화평론가협회상(최우수 작품상, 감독상, 촬영상, 영평10선)</span><br>
+							<span>28회 부일영화상(최우수 작품상, 남우 조연상, 여우 조연상, 각본상, 촬영상, 음악상)</span><br>
+							<span>38회 벤쿠버국제영화제(관객상), 44회 토론토국제영화제(관객상-세컨드)</span><br>
+							<span>15회 제천국제음악영화제(올해의 영화인)</span><br>
+							<span>24회 춘사영화상(최우수감독상, 각본상, 여우주연상, 여우조연상)</span><br>
+							<span>15회 유라시아 국제영화제(감독상)</span><br>
+							<span>66회 시드니 영화제(작품상)</span><br>
+							<span>72회 칸영화제(황금종려상)</span><br>
+						</div>
+					</div>
+				</div>
 			</div>
-<style>
-	#oscars_text{
-		position: absolute;
-		bottom: 0; left: 230px;
-		width: 900px; height: 700px;
-	}
-	#o_text01Wrap,
-	#o_text02Wrap{
-		width: 900px; height: 700px; 
-		z-index: 9999; 
-		background-color: rgba(0,0,0,.5);
-		text-align: left;
-		padding: 50px 50px;
-		color:#fff;
-		display: none;
-		transition:1s;
-		position: absolute;
-	}
-	#O_text02Wrap{opacity:1;}
-	.text_close{
-		position: absolute;
-		right: 50px; top: 50px;
-		cursor:pointer;
-	}
-	#o_text01Wrap h3,
-	#o_text02Wrap h3{
-		font-size:4rem;
-		padding-bottom: 50px;
-	}
-	#o_text01Wrap p,
-	#o_text02Wrap p{
-		font-size:3rem;
-		color:#ddd;
-		padding-bottom: 20px;
-	}
-	#o_text01Wrap span{
-		display: block;
-		font-size:1rem;
-		color:#ddd;
-		padding-bottom: 20px;
-	}
-	#o_text02Wrap span{
-		display: block;
-		font-size:1rem;
-		color:#ddd;
-		padding-bottom: 10px;
-	}
-</style>
-
 		</div>
-
-
-
+<!-- fullpage3 -->
 		<div class="section page" id="page3" data-anchor="3st">
 			<div class="viewer01">
 				<div class="slider">
@@ -587,33 +757,96 @@
 				
 			</div>	
 		</div>
-
+<!-- fullpage4 -->
 		<div class="section page" id="page4" data-anchor="4st">
 			<div class="main" id="onView04">
 				<h3>Trailer</h3>
 			</div>
-			<video id="myVideo" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
+			<div id="more_btnWrap">
+				<div class="more_btn">
+					<p>more</p>
+					<div class="btn_img">
+						<img src="images/trailer_close.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div id="more_video">
+
+				<div class="video01">Trailer01
+				</div>
+				<div class="video02">Trailer02
+				</div>
+				<div class="video03">Trailer03
+				</div>
+			</div>
+			<video id="myVideo4" data-autoplay muted autoplay loop><source src="images/trailer02.mp4" type="video/mp4"></video>
 		</div>
+<style>
+	#more_btnWrap{
+		position: absolute;
+		right: 80px;
+		top: 50%;
+		transform:translateY(-50%);
+		z-index: 99999;
+	}
+	.more_btn{position: relative; width: 170px;}
+	.more_btn p{
+		position: absolute; left: 0;
+		line-height: 100px;
+		color:#fff;
+		font-size: 1.4rem;
+	}
+	.btn_img{
+		position: absolute; right: 0; 
+		cursor:pointer;
+	}
+	.btn_img img{
+		display: block;
+	}
+	#more_video{
+		height: 100%; width: 30%;
+		z-index: 99999;
+		background-color: rgba(0,0,0,.5);
+		position: absolute;
+		right: 0;top: 0;
+	}
+	#more_video div{
+		width: 300px; height: 20%;
+		background-color: orange;
+		margin: 15% auto;
+		color:#ddd;
+	}
+</style>
+<!-- fullpage5 -->
 		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
 			<div class="g_center">
 				<h1 class="g_title">Gallery</h1>
 			</div>
-				<div class="g_img" overflow:auto>
-					<a href="#" class="gal_btn gal_btn01">
-						<img src="images/이미지 165.png" alt="">
-					</a>
-					<a href="#" class="gal_btn gal_btn02">
-						<img src="images/이미지 149.png" alt="">
-					</a>
-					<a href="#" class="gal_btn gal_btn03">
-						<img src="images/이미지 252.png" alt="">
-					</a>
-					<div style="height: 200px;"></div>
-					<a href="#" class="gal_btn gal_btn04">
-						<img src="images/img165.png" alt="">
-					</a>
-				</div>
+			<div class="g_img" overflow:auto>
+				<a href="#" class="gal_btn gal_btn01">
+					<img src="images/이미지 165.png" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn02">
+					<img src="images/이미지 149.png" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn03">
+					<img src="images/이미지 252.png" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn04">
+					<img src="images/img165.png" alt="">
+				</a>
+			</div>
 		</div>
+	</div>
+
+
+
+
+		<audio id="audio01" src="radio/radio01.mp3"></audio>
+		<audio id="audio02" src="radio/radio02.mp3"></audio>
+		<audio id="audio03" src="radio/radio03.mp3"></audio>
+		<audio id="audio04" src="radio/radio04.mp3"></audio>
+		<audio id="audio05" src="radio/radio05.mp3"></audio>
 <style>
 	.g_center{
 		width: 500px; height: 500px;
@@ -651,6 +884,6 @@
 		left: 200px; top: 800px;
 	}
 </style>
-	</div>
+	
 </body>
 </html>
