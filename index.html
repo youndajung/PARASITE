@@ -39,6 +39,11 @@
 					}else{
 						$("#onView04").removeClass("move");
 					}
+					if(index==5){
+						$("#onView05").addClass("move");
+					}else{
+						$("#onView05").removeClass("move");
+					}
 				}
 			});	
 			$(window).resize(function(){
@@ -156,8 +161,21 @@
 				$("#oscars div").hide();
 				$(".oscars03Wrap").show();
 				$("#o_text03Wrap").show();
+				$(".section").addClass("mLeft");
 				$(".text_close").click(function(e){
 					$("#o_text03Wrap").hide();
+					$("#oscars div").show();
+					$(".section").removeClass("mLeft");
+					e.preventDefault();
+				});
+			});
+			$(".oscars04Wrap").click(function(){
+				$("#oscars div").hide();
+				$(".oscars04Wrap").show();
+				$("#o_text04Wrap").show();
+				$(".section").addClass("mLeft");
+				$(".text_close").click(function(e){
+					$("#o_text04Wrap").hide();
 					$("#oscars div").show();
 					$(".section").removeClass("mLeft");
 					e.preventDefault();
@@ -273,6 +291,23 @@
 					video.removeClass("active");
 			});//여기까지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 
+			var mySlide=$(".g_slider").bxSlider({
+				 auto:true,
+		         minSlides:3,
+		         maxSlides:3,
+		         moveSlides:1,
+		         slideWidth:600,
+		         slideMargin:200,
+		         controls:false,
+		         pagerCustom:".slider_btn"
+			});
+			$(".right").click(function(){
+		         mySlide.goToNextSlide()
+		      });
+		      $(".left").click(function(){
+		         mySlide.goToPrevSlide()
+		      });
+				
 		});
 	</script>
 </head>
@@ -642,6 +677,22 @@
 						</div>
 					</div>
 				</div>
+				<div id="o_text04Wrap">
+					<div class="text_close">
+						<img src="images/close.png" alt="">
+					</div>
+					<h3>Critism Of Riview</h3>
+					<p>Bong Jun Ho</p>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus vero dolorem quia accusantium, vel vitae consectetur deleniti debitis doloribus beatae harum excepturi facilis pariatur, consequatur eaque dicta. Dolore, a aut.
+					</span><br>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem culpa molestiae quasi omnis voluptate eos officia quis eius optio, consequatur quas tempore libero hic, quo voluptates nisi repudiandae, nemo. Tempora quia repellendus odio nam similique tempore facilis, non odit numquam iure est fuga reprehenderit dicta voluptates dolore, asperiores dolor nisi.
+					</span><br>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus vero dolorem quia accusantium, vel vitae consectetur deleniti debitis doloribus beatae harum excepturi facilis pariatur, consequatur eaque dicta. Dolore, a aut.
+					</span>
+				</div>
 			</div>
 		</div>
 <!-- fullpage3 -->
@@ -826,136 +877,112 @@
 
 <!-- fullpage5 -->
 		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
-			<div class="g_center">
-				<h1 class="g_title">Gallery</h1>
+			<div class="main" id="onView05">
+				<h3>Character</h3>
 			</div>
-			<div class="g_img" overflow:auto>
+			<div class="g_center">
+				<h1 class="g_title">PARASITE</h1>
+			</div>
+			<div class="g_slider" overflow:auto>
 				<a href="#" class="gal_btn gal_btn01">
-					<img src="images/이미지 165.png" alt="">
+					<img src="images/gallery0101.jpg" alt="">
 				</a>
 				<a href="#" class="gal_btn gal_btn02">
-					<img src="images/이미지 149.png" alt="">
+					<img src="images/gallery0202.jpg" alt="">
 				</a>
 				<a href="#" class="gal_btn gal_btn03">
-					<img src="images/이미지 252.png" alt="">
+					<img src="images/gallery0303.jpg" alt="">
 				</a>
 				<a href="#" class="gal_btn gal_btn04">
-					<img src="images/이미지 165.png" alt="">
+					<img src="images/gallery0404.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn05">
+					<img src="images/gallery0505.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn06">
+					<img src="images/gallery0606.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn07">
+					<img src="images/gallery0707.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn08">
+					<img src="images/gallery0808.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn09">
+					<img src="images/gallery0909.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn10">
+					<img src="images/gallery1010.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn11">
+					<img src="images/gallery1111.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn12">
+					<img src="images/gallery1212.jpg" alt="">
+				</a>
+				<a href="#" class="gal_btn gal_btn13">
+					<img src="images/gallery1313.jpg" alt="">
 				</a>
 			</div>
+			<div class="slider_btn">
+				<div class="left">
+					<img src="images/btnleft.png" alt="">
+				</div>
+				<div class="right">
+					<img src="images/btnright.png" alt="">
+				</div>
+			</div>
 		</div>
+
+<style>
+	
+	.g_center{
+		width: 500px; height: 500px;
+		position:absolute; left: 40%; bottom: 50px;
+		transform:translate(-50%,-50%);
+		animation: titleAni 5s infinite linear alternate;
+	}
+	@keyframes titleAni{
+		to{left: 60%;}
+	}
+	.g_title{
+		font-size: 10rem;
+		text-align: center;
+		line-height: 500px;
+		color:#999;
+	}
+	.g_slider{
+		height: 600px;
+	}
+
+	.gal_btn{
+		display: block;
+		width: 600px; height: 418px;
+		overflow:hidden;
+		position: absolute;
+		z-index: 999;
+	}
+
+	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+	    position: absolute;
+	    width: 300px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    bottom: -180px;
+	}
+
+	.left{position: absolute; left: 0; top: 50%; transform:translateY(-50%);}
+	.right{position: absolute; right: 0; top: 50%; transform:translateY(-50%);}
+	
+</style>		
+
+<!-- sound -->
 	</div>
 		<audio id="audio01" src="radio/radio01.mp3"></audio>
 		<audio id="audio02" src="radio/radio02.mp3"></audio>
 		<audio id="audio03" src="radio/radio03.mp3"></audio>
 		<audio id="audio04" src="radio/radio04.mp3"></audio>
 		<audio id="audio05" src="radio/radio05.mp3"></audio>
-
-
-		
-<style>
-	#more_btnWrap{
-		position: absolute;
-		right: 80px;
-		top: 50%;
-		transform:translateY(-50%);
-		z-index: 99999;
-		transition:.1s;
-	}
-	#more_btnWrap.active{
-		position: absolute; right: 32%;
-	}
-	#more_btnWrap.active:hover .btn_img{
-		transform:rotate(180deg);
-	}
-
-	.more_btn{position: relative; width: 170px;}
-	.more_btn p{
-		position: absolute; left: 0;
-		line-height: 100px;
-		color:#fff;
-		font-size: 1.4rem;
-		transition:.3s;
-	}
-	.btn_img{
-		position: absolute; right: 0; 
-		cursor:pointer;
-		transition:.3s;
-	}
-	.btn_img img{
-		display: block;
-
-	}
-	#more_video{
-		height: 100%; width: 30%;
-		z-index: 99999;
-		background-color: rgba(0,0,0,.5);
-		position: absolute;
-		right: -30%; top: 0;
-		transition:1s;
-	}
-	#more_video.active{
-		position: absolute; right: 0;
-	}
-	
-	#more_video >p{
-		font-size: 1.4rem;
-		color:#fff;
-		margin: 0 auto;
-		text-align: bottom;
-		padding-top: 20%;
-		padding-bottom: 10%;
-	}
-	
-	
-	#more_video div{
-		width: 60%; height: 20%;
-		margin-bottom: 50px;
-		margin-left: 20%;
-		color:#ddd;
-		cursor:pointer;
-	}
-	#more_video div >img{
-		display: block; height: 100%;
-		margin: 0 auto;
-	}
-
-	.g_center{
-		width: 500px; height: 500px;
-		position:absolute; left: 35%; bottom: 250px;
-		transform:translateX(-50%);
-		transform:rotate(-90deg);
-	}
-	.g_title{
-		font-size: 8rem;
-		text-align: center;
-		line-height: 500px;
-		color:#999;
-	}
-	.gal_btn{
-		display: block;
-		width: 500px; height: 400px;
-		overflow:hidden;
-		position: absolute;
-		z-index: 999;
-	}
-	.g_img{
-		background-color: orange;
-
-	}
-	.gal_btn01{
-		left: 80px; top: 300px;
-	}
-	.gal_btn02{
-		left: 300px; top: 500px;
-	}
-	.gal_btn03{
-		left: 1200px; top: 400px;
-	}
-	.gal_btn04{
-		left: 200px; top: 800px;
-	}
-</style>
 	
 </body>
 </html>

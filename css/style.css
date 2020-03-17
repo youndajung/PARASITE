@@ -65,12 +65,14 @@
 
 		#onView,
 		#onView03,
-		#onView04{
-			top: 0; transition:.3s; opacity:0; z-index: 10;
+		#onView04,
+		#onView05{
+			top: 0; transition:.3s; opacity:0; z-index: 99999;
 		}
 		#onView.move,
 		#onView03.move,
-		#onView04.move{
+		#onView04.move,
+		#onView05.move{
 			top: 15%; opacity:1;
 		}
 		#myVideo{
@@ -294,7 +296,8 @@
 		}
 		#o_text01Wrap,
 		#o_text02Wrap,
-		#o_text03Wrap{
+		#o_text03Wrap,
+		#o_text04Wrap{
 			width: 900px; height: 700px; 
 			z-index: 9999; 
 			background-color: rgba(0,0,0,.5);
@@ -313,17 +316,20 @@
 		}
 		#o_text01Wrap h3,
 		#o_text02Wrap h3,
-		#o_text03Wrap h3{
+		#o_text03Wrap h3,
+		#o_text04Wrap h3{
 			font-size:4rem;
 			padding-bottom: 50px;
 		}
 		#o_text01Wrap p,
-		#o_text02Wrap p{
+		#o_text02Wrap p,
+		#o_text04Wrap p{
 			font-size:3rem;
 			color:#ddd;
 			padding-bottom: 20px;
 		}
-		#o_text01Wrap span{
+		#o_text01Wrap span,
+		#o_text04Wrap span{
 			display: block;
 			font-size:1rem;
 			color:#ddd;
@@ -337,7 +343,7 @@
 		}
 		#o_text03Wrap span{
 			display: inline-block;
-			font-size:1rem;
+			font-size:0.8rem;
 			color:#ddd;
 			padding-bottom: 5px;
 		}
@@ -384,13 +390,13 @@
 			position: absolute; left: 0; bottom: 0;
 		}
 		.section.active #oscars div:nth-child(2){
-			left: 230px; transition: 1s 2s;
+			left: 230px; transition: 1s 1s;
 		}
 		.section.active #oscars div:nth-child(3){
-			left: 460px; transition: 1s 2.2s;
+			left: 460px; transition: 1s 1.2s;
 		}
 		.section.active #oscars div:nth-child(4){
-			left:690px; transition: 1s 2.4s;
+			left:690px; transition: 1s 1.4s;
 		}
 
 
@@ -476,6 +482,74 @@
 		@keyframes btnAni{
 			to{opacity:1;}
 		}
+
+/*fullpage04*/
+			#more_btnWrap{
+			position: absolute;
+			right: 80px;
+			top: 50%;
+			transform:translateY(-50%);
+			z-index: 99999;
+			transition:.1s;
+		}
+		#more_btnWrap.active{
+			position: absolute; right: 32%;
+		}
+		#more_btnWrap.active:hover .btn_img{
+			transform:rotate(180deg);
+		}
+
+		.more_btn{position: relative; width: 170px;}
+		.more_btn p{
+			position: absolute; left: 0;
+			line-height: 100px;
+			color:#fff;
+			font-size: 1.4rem;
+			transition:.3s;
+		}
+		.btn_img{
+			position: absolute; right: 0; 
+			cursor:pointer;
+			transition:.3s;
+		}
+		.btn_img img{
+			display: block;
+
+		}
+		#more_video{
+			height: 100%; width: 30%;
+			z-index: 99999;
+			background-color: rgba(0,0,0,.5);
+			position: absolute;
+			right: -30%; top: 0;
+			transition:1s;
+		}
+		#more_video.active{
+			position: absolute; right: 0;
+		}
+		
+		#more_video >p{
+			font-size: 1.4rem;
+			color:#fff;
+			margin: 0 auto;
+			text-align: bottom;
+			padding-top: 20%;
+			padding-bottom: 10%;
+		}
+		
+		
+		#more_video div{
+			width: 60%; height: 20%;
+			margin-bottom: 50px;
+			margin-left: 20%;
+			color:#ddd;
+			cursor:pointer;
+		}
+		#more_video div >img{
+			display: block; height: 100%;
+			margin: 0 auto;
+		}
+
 /*bxslider*/
 	.bx-wrapper {
 	    -moz-box-shadow: none;
