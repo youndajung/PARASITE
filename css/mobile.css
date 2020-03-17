@@ -1,0 +1,41 @@
+
+.fp-slidesNav ul li a {
+    width: 65px;
+    height: 65px;
+}
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+	width: 65px;
+	height: 65px;
+}
+#fp-nav ul li, .fp-slidesNav ul li {
+    width: 50px;
+}
+#nav{width: 100%;}
+#nav #navWrap{padding: 0;}
+.nav_menu {
+	height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#logo {
+	top:85px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav_menu ul li a{font-size: 2rem;}
+#logo img{width: 150px;}
+.nav_menu ul li a{text-align: center;}
+#back{left: 5%;top: 80px;}
+#back img{width: 50px;}
+#tnb #topMenu >li{display: none;}
+#tnb #topMenu #menu{display: block;}
+div#tnb li >a img{width: 60px;}
+div#tnb{padding-top: 75px; padding-left: 0;}
+.charWrap{display: none;}
+#click{display: none;}
+
+#page3 .fp-tableCell .viewer01{display: block;}
+.sub_img{width: 100%;}
+.sub_text{width: 100%;}
+.viewer01 .close{display: none;}

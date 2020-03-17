@@ -2,13 +2,14 @@
 <html lang="ko">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
 	<title>기생충</title>
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<link rel="stylesheet" href="css/fullpage.css">
 	<link rel="stylesheet" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery.fullPage.js"></script>
 	<script src="js/jquery.bxslider.js"></script>
@@ -104,7 +105,7 @@
             });
 
             //var viewSlider = $(".viewer01 .slider").bxSlider({startSlide:0});
-			 $(".viewer01").hide();
+			 // $(".viewer01").hide();
 			// var viewSlider = $('.viewer01 .slider').bxSlider();
 			$(".btnWrap>div").hover(function(){
 				var i = $(this).index();
@@ -264,14 +265,10 @@
 			$(".btn_img").click(function(){
 				var btn=$("#more_btnWrap");
 				var video=$("#more_video");
-				btn.addClass("active");
-				video.addClass("active");
-				$(".more_btn>p").html("close");
-				$(this).click(function(){
-					btn.removeClass("active");
-					video.removeClass("active");
-					window.location.reload();
-				});
+				btn.toggleClass("active");
+				video.toggleClass("active");
+				$(".tr_btn").toggleClass("active");
+				
 			});
 			var btn=$("#more_btnWrap");
 			var video=$("#more_video");
@@ -426,58 +423,7 @@
 			</div>
 		</div>
 	</div>
-<style>
-	.play img{
-		display: block;
-		margin: 0 auto;
-		width: 80%;
-		padding-top: 50px;
-		position: absolute;
-		top: 50%; left: 50%;
-		opacity:0;
-		transition:.3s;
-		transform:translate(-50%,-50%);
-	}
-	.play img.active{
-		transform:translate(-50%,-60%);
-		opacity:1;
-	}
-	.list{
-		display:flex;
-		justify-content: space-around;
-	}
-	.list div{
-		margin-top: 30px;
-		width: 25%; height: 80%;
-
-
-	}
-	.list div a{
-		display:block;
-		color:#666;
-		font-weight: bold;
-		position: relative;
-		padding-bottom: 20px;
-	}
-	.list div a:after{
-		content:"";
-		display: block;
-		width: 0px; height: 2px;
-		background-color: #000;
-		position: absolute;
-		top: 10px;
-		transition:.3s;
-	}
-	.list div a.active:after{
-		width: 150px;
-	}
-	.list div span{
-		display: block;
-		color:#999;
-		padding-bottom: 20px;
-	}
-
-</style>	
+	
 	<div id="rBox">
 		<div class="rTitle">Reservation
 			<a href="" class="fnb_close02"><img src="images/fnb_close.png" alt=""></a>
@@ -506,47 +452,6 @@
 			</div>
 		</div>
 	</div>
-
-	<style>
-		/*.rName{
-			position: absolute;
-			bottom: 200px;
-			left: 50%;
-			transform:translateX(-50%);
-		}
-		.rName img{
-			display: block; margin: 0 auto;
-			transform:scale(1.5);
-		}*/
-		.moviebox{
-			position: relative; 
-			padding: 20px 0;
-			background-color: rgba(0,0,0,.6);
-			border-radius: 20px;
-			transition:.3s;
-		}
-		.moviebox:hover{background-color: rgba(255,255,255,.8);}
-		.moviebox> a{display: block; width: 100%; height: 100%;}
-		.movie{position: absolute; display: block; left: 50%; transform:translateX(-50%);}
-		.megabox .movie{top: 70px;}
-		.moviebox span{
-			display: block;
-			width: 100%;
-			position: absolute; bottom: 30px;
-			opacity:0;
-			text-align: center;
-			font-size:1.5rem;
-			transition:.3s;
-		}
-		.moviebox:hover span{
-			animation: movieAni 1s forwards;
-
-		}
-		@keyframes movieAni{
-			to{bottom:10px; opacity:1;}
-		}
-
-	</style>
 
 	<div id="fullPage">
 		<div class="section page" id="page1" data-anchor="1st">
@@ -849,7 +754,8 @@
 			</div>
 			<div id="more_btnWrap">
 				<div class="more_btn">
-					<p>more</p>
+					<p class="tr_btn active">more</p>
+					<p class="tr_btn">close</p>
 					<div class="btn_img">
 						<img src="images/trailer_close.png" alt="">
 					</div>
@@ -878,7 +784,7 @@
 <!-- fullpage5 -->
 		<div class="section page" id="page5" data-anchor="5st" style="background-color: #000">
 			<div class="main" id="onView05">
-				<h3>Character</h3>
+				<h3>Gallery</h3>
 			</div>
 			<div class="g_center">
 				<h1 class="g_title">PARASITE</h1>
@@ -934,47 +840,7 @@
 			</div>
 		</div>
 
-<style>
-	
-	.g_center{
-		width: 500px; height: 500px;
-		position:absolute; left: 40%; bottom: 50px;
-		transform:translate(-50%,-50%);
-		animation: titleAni 5s infinite linear alternate;
-	}
-	@keyframes titleAni{
-		to{left: 60%;}
-	}
-	.g_title{
-		font-size: 10rem;
-		text-align: center;
-		line-height: 500px;
-		color:#999;
-	}
-	.g_slider{
-		height: 600px;
-	}
 
-	.gal_btn{
-		display: block;
-		width: 600px; height: 418px;
-		overflow:hidden;
-		position: absolute;
-		z-index: 999;
-	}
-
-	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
-	    position: absolute;
-	    width: 300px;
-	    left: 50%;
-	    transform: translateX(-50%);
-	    bottom: -180px;
-	}
-
-	.left{position: absolute; left: 0; top: 50%; transform:translateY(-50%);}
-	.right{position: absolute; right: 0; top: 50%; transform:translateY(-50%);}
-	
-</style>		
 
 <!-- sound -->
 	</div>
