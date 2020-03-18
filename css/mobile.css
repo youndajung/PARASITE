@@ -10,7 +10,7 @@
 #fp-nav ul li, .fp-slidesNav ul li {
     width: 50px;
 }
-#nav{width: 100%;}
+#nav{width: 100%; left: -100%;}
 #nav #navWrap{padding: 0;}
 .nav_menu {
 	height: 60%;
@@ -39,3 +39,84 @@ div#tnb{padding-top: 75px; padding-left: 0;}
 .sub_img{width: 100%;}
 .sub_text{width: 100%;}
 .viewer01 .close{display: none;}
+
+.main >h3{font-size: 1rem;}
+#director{width: 100%;}
+#director>img{width: 100%;}
+
+#oscars{display: none;}
+#m_oscars{display: block;}
+
+/*#oscars {
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 0;
+}
+#oscars div {
+    width: 150px;
+    height: 230px;
+    position: absolute;
+    left: 20px;
+    top: 120px;
+}
+
+.oscars01Wrap {
+    width: 230px;
+    height: 700px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    overflow: hidden;
+}
+.o_arrowWrap{
+left: 0;
+}
+@keyframes o_arrowAni{
+	0% {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+100% {
+    top: 15px;
+    left: 0;
+    opacity: 1;
+}
+}
+.o_arrow {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+}
+.o_arrowWrap span {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gold_btn {
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* z-index: 99999; */
+/*    border-radius: 50%;
+    overflow: hidden;
+}
+
+.gold {
+    width: 80px;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+*/

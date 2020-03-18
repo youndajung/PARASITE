@@ -25,6 +25,7 @@
 		div#tnb li:nth-child(5) a{
 			line-height: 100px;
 		}
+		#page1{background-image: url(../images/gif03.gif);}
 		#page2{background-image: url(../images/fullpage020202.jpg);}
 		#page3{background-image: url(../images/fullpagebg0303.jpg); overflow:hidden;}
 		#page4{background-color: #000;overflow:hidden;}
@@ -55,7 +56,9 @@
 			transform:translate(-50%,-50%);
 			text-align: center;
 		}
-		.main >h3{font-size: 1.5rem;}
+		.main >h3{font-size: 1.5rem; letter-spacing:3px;}
+		#page2 .main>h3{letter-spacing:3px;}
+
 		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}
 		.main >a:hover{background-color: #fff; color:#000;}
 
@@ -102,10 +105,14 @@
 		#nav{
 			width: 40%;
 			height: 100%;
-			position: fixed;
+			position: absolute;
+			left: -40%;
 			background-color: rgba(0,0,0,.8);
 			z-index: 2;
-			display: none;
+			transition:.8s;
+		}
+		#nav.active{
+			left: 0;
 		}
 		#nav #navWrap{
 			width: 100%; height: 100%;
@@ -359,6 +366,7 @@
 			position: relative; left: 80px; bottom: 0;
 			margin-top: 300px;
 		}
+		#m_osrcars{display: none;}
 
 		#oscars_text{
 			position: absolute;
@@ -476,11 +484,31 @@
 		.section.active.mLeft #oscars div:nth-child(4){
 			left: 0; transition: 1s;
 		}
-		.section.active .oscars02Wrap{/*animation: oscars02Ani 1s 2s forwards;*/}
-		/*@keyframes oscars02Ani{
-			to{left: 230px;}
+
+
+
+
+
+		div#m_oscars{
+			width: 100%;
+			position: absolute;
+			left: 0; top: 50%;
+			transform:translateY(-50%);
+			padding-top: 20px; padding-left: 20px;
+			background-color: orange;
+		}
+		div#m_oscars >div{
+			width: 50%;
+			float: left;
+			height: 230px;
+			margin-right: 20px; margin-bottom: 20px;
 		}
 		
+
+
+
+
+
 /*fullpage03*/
 
 		.charWrap{
