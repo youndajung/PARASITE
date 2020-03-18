@@ -371,7 +371,6 @@
 			position: absolute;
 			bottom: 0; left: 230px;
 			width: 900px; height: 700px;
-			display: none;
 		}
 		#oscars_text.active{display: block;}
 		
@@ -460,8 +459,7 @@
 		}
 		.o_arrowWrap span{display: block; color:#fff;}
 		.o_arrow{
-			display: block; 
-			position: absolute; 
+			display: inline-block;
 			top: 0;  left: -38px;
 		}
 
