@@ -147,7 +147,20 @@
 					$("#oscars div").show();
 					e.preventDefault();
 				});
-			});//수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+			});
+
+			$(".m_oscars01Wrap").click(function(){
+				$("#m_oscars div").hide();
+				$("#oscars_text").addClass("active");
+				$("#o_text01Wrap").show();
+				$(".text_close").click(function(e){
+					$("#oscars_text").removeClass("active");
+					$("#o_text01Wrap").hide();
+					$("#m_oscars div").show();
+					e.preventDefault();
+				});
+			});
+
 			$(".oscars02Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars02Wrap").show();
@@ -504,7 +517,7 @@
 			</div>
 
 
-			<div id="m_oscars clearfix">
+			<div id="m_oscars" class="m_oscars clearfix">
 
 				<div class="m_oscars01Wrap">
 					<div class="m_o_arrowWrap">

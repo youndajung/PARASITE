@@ -361,24 +361,25 @@
 		#director img{display: block;}
 		.section.active #director{right: 0;}
 		#oscars{
-			z-index: 9999;
 			width: 920px; height: 700px; 
 			position: relative; left: 80px; bottom: 0;
 			margin-top: 300px;
 		}
-		#m_osrcars{display: none;}
+		.m_osrcars{display: none;}
 
 		#oscars_text{
 			position: absolute;
 			bottom: 0; left: 230px;
 			width: 900px; height: 700px;
+			display: none;
 		}
+		#oscars_text.active{display: block;}
+		
 		#o_text01Wrap,
 		#o_text02Wrap,
 		#o_text03Wrap,
 		#o_text04Wrap{
-			width: 900px; height: 700px; 
-			z-index: 9999; 
+			width: 900px; height: 700px;  
 			background-color: rgba(0,0,0,.5);
 			text-align: left;
 			padding: 50px 50px;
@@ -467,6 +468,7 @@
 		#oscars div{
 			width: 230px; height: 700px;
 			position: absolute; left: 0; bottom: 0;
+			z-index: 1; cursor: pointer;
 		}
 		.section.active #oscars div:nth-child(2){
 			left: 230px; transition: 1s 1s;
@@ -489,22 +491,51 @@
 
 
 
-		div#m_oscars{
+		.m_oscars{
 			width: 100%;
 			position: absolute;
 			left: 0; top: 50%;
-			transform:translateY(-50%);
-			padding-top: 20px; padding-left: 20px;
-			background-color: orange;
+			transform:translateY(-50%) scale(.6);
+			opacity:0; transition: 2s;
+			display: none;
 		}
-		div#m_oscars >div{
+		.section.active .m_oscars{opacity:1; top: 50%; transform: translateY(-50%) scale(1);}
+
+		.m_oscars >div{
 			width: 50%;
 			float: left;
-			height: 230px;
-			margin-right: 20px; margin-bottom: 20px;
+			height: 240px;
+			position: relative;
 		}
-		
+		.m_gold_btn{
+			position: absolute; bottom: 0; left: 50%;
+			transform:translateX(-50%);
+			width: 150px; height: 150px; border-radius: 50%;
+			background-color: rgba(0,0,0,.8);
+			overflow: hidden;
+		}
 
+		.m_o_arrowWrap{
+			display: inline-block;
+			position: absolute; top: 10px; left: 50%;
+			transform:translateX(-50%);
+			_background-color: red;
+			animation: m_o_arrowAni 1s infinite forwards alternate;
+		}
+		@keyframes m_o_arrowAni{
+			to{top: 20px;  left: 50%; }
+		}
+		.m_o_arrowWrap img{
+			width: 20px;
+			display: block;
+			position: absolute;
+			left: 50%;
+			transform:translateX(-50%);
+		}
+		.m_o_arrowWrap span{
+			display: block; padding-top: 30px;
+			color:#ddd;
+		}
 
 
 
