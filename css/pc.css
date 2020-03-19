@@ -57,7 +57,6 @@
 			text-align: center;
 		}
 		.main >h3{font-size: 1.5rem; letter-spacing:3px;}
-		#page2 .main>h3{letter-spacing:3px;}
 
 		.main >a{display: block; text-align: center; width: 150px; border: 1px solid #fff; line-height: 35px; color:#fff; border-radius:7px; margin: 0 auto; transition:.3s;}
 		.main >a:hover{background-color: #fff; color:#000;}
@@ -407,12 +406,13 @@
 			color:#ddd;
 			padding-bottom: 20px;
 		}
+		#o_text01Wrap span{line-height: 25px;}
 		#o_text01Wrap span,
 		#o_text04Wrap span{
 			display: block;
 			font-size:1rem;
 			color:#ddd;
-			padding-bottom: 20px;
+			padding-bottom: 10px;
 		}
 		#o_text02Wrap span{
 			display: block;
@@ -422,9 +422,9 @@
 		}
 		#o_text03Wrap span{
 			display: inline-block;
-			font-size:0.8rem;
+			font-size:.9rem;
 			color:#ddd;
-			padding-bottom: 5px;
+			padding-bottom: 10px;
 		}
 		.awards_listWrap{position: relative; width: 800px; height: 400px;}
 		.awards_list{width: 50%; position: absolute}
