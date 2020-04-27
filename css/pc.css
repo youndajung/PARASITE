@@ -230,6 +230,7 @@
 		.rTitle .fnb_close02{
 			position: absolute; left: 50%;
 			transform:translateX(-50%);
+			bottom: 0;
 		}
 		.sTitle .fnb_close img,
 		.rTitle .fnb_close02 img{
@@ -615,7 +616,7 @@
 			#more_btnWrap{
 			position: absolute;
 			right: 80px;
-			top: 50%;
+			bottom: 50%;
 			transform:translateY(-50%);
 			z-index: 99999;
 			transition:.8s;

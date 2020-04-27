@@ -172,6 +172,19 @@
 					e.preventDefault();
 				});
 			});
+
+			$(".m_oscars02Wrap").click(function(){
+				$("#m_oscars div").hide();
+				$("#oscars_text").addClass("active");
+				$("#o_text02Wrap").show();
+				$(".text_close").click(function(e){
+					$("#oscars_text").removeClass("active");
+					$("#o_text02Wrap").hide();
+					$("#m_oscars div").show();
+					e.preventDefault();
+				});
+			});
+
 			$(".oscars03Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars03Wrap").show();
