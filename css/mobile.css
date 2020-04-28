@@ -4,8 +4,8 @@
     height: 65px;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span{
-	width: 65px;
-	height: 65px;
+    width: 65px;
+    height: 65px;
 }
 
 
@@ -25,13 +25,13 @@ div#tnb {width: 25%;}
 #nav{width: 100%; left: -100%;}
 #nav #navWrap{padding: 0;}
 .nav_menu {
-	height: 60%;
+    height: 60%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 #logo {
-	top:85px;
+    top:85px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -120,13 +120,8 @@ div#tnb{padding-top: 75px; padding-left: 0;}
     width: 60px;
     height: 60px;
 }
-.text_close > img{
-    display: block;
-    width: 100%;
-}
-#oscars_text > div {
-    padding-top: 180px;
-}
+.text_close > img{display: block;width: 100%;}
+#oscars_text > div {padding-top: 180px;}
 #o_text01Wrap h3,
 #o_text02Wrap h3,
 #o_text03Wrap h3,
@@ -147,7 +142,61 @@ div#tnb{padding-top: 75px; padding-left: 0;}
 #o_text04Wrap span:last-child{
     display:none;
 }
-
-
-
-
+#o_text01Wrap, #o_text02Wrap, #o_text03Wrap, #o_text04Wrap {width: 100%;height: 100%;}
+.awards_listWrap {width: 100%;height: 100%;}
+.awards_list {width: 100%;}
+.awards_list:first-child {display: none;}
+.left{left: 0; top: 50%;}
+.right{right: 0; top: 50%;}
+.g_title {font-size: 5rem;line-height: 270px;}
+.g_slider {
+    width: 100%;
+    margin-top: 280px;
+    margin-left: 0;
+}
+.g_s_img {
+    width: 80%;
+    margin:0 auto;
+}
+.slick-prev {
+    left: 15px;
+    z-index: 9999;
+}
+.slick-next {
+    right: 15px;
+    z-index: 9999;
+}
+/*sound track*/
+.sTitle .fnb_close,
+.rTitle .fnb_close02 {
+    right: 15px;
+     transform: none; 
+    bottom: 5px;
+    width: 60px;
+    height: 60px;
+}
+.sTitle .fnb_close > img,
+.rTitle .fnb_close02 > img{
+    width: 100%;
+} 
+#sBox .sTitle,
+#rBox .rTitle{
+    font-size: 2rem;
+    padding-left: 15px;
+}
+#sBox .sContent, #rBox .rContent {
+    padding: 0;
+}
+.sContent .play {
+    width: 50%;
+    height: 100%;
+     margin-left: 0; 
+}
+.sContent .list {
+    font-size: 14px;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+     margin-left: 0; 
+     padding: 0;
+}

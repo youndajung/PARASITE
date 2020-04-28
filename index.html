@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<title>::영화 기생충 홍보사이트::</title>
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slick-theme.css">
 	<link rel="stylesheet" href="css/fullpage.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -13,6 +15,7 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery.fullPage.js"></script>
 	<script src="js/jquery.bxslider.js"></script>
+	<script src="js/slick.min.js"></script>
 
 	<script>
 		$(document).ready(function(){
@@ -184,7 +187,6 @@
 					e.preventDefault();
 				});
 			});
-
 			$(".oscars03Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars03Wrap").show();
@@ -197,6 +199,17 @@
 					e.preventDefault();
 				});
 			});
+			$(".m_oscars03Wrap").click(function(){
+				$("#m_oscars div").hide();
+				$("#oscars_text").addClass("active");
+				$("#o_text03Wrap").show();
+				$(".text_close").click(function(e){
+					$("#oscars_text").removeClass("active");
+					$("#o_text03Wrap").hide();
+					$("#m_oscars div").show();
+					e.preventDefault();
+				});
+			});
 			$(".oscars04Wrap").click(function(){
 				$("#oscars div").hide();
 				$(".oscars04Wrap").show();
@@ -206,6 +219,17 @@
 					$("#o_text04Wrap").hide();
 					$("#oscars div").show();
 					$(".section").removeClass("mLeft");
+					e.preventDefault();
+				});
+			});
+			$(".m_oscars04Wrap").click(function(){
+				$("#m_oscars div").hide();
+				$("#oscars_text").addClass("active");
+				$("#o_text04Wrap").show();
+				$(".text_close").click(function(e){
+					$("#oscars_text").removeClass("active");
+					$("#o_text04Wrap").hide();
+					$("#m_oscars div").show();
 					e.preventDefault();
 				});
 			});
@@ -313,24 +337,38 @@
 				$("#myVideo4").attr({"src":"images/trailer03.mp4"});
 				btn.removeClass("active");
 					video.removeClass("active");
-			});//여기까지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
-
-			var mySlide=$(".g_slider").bxSlider({
-				 auto:true,
-		         minSlides:3,
-		         maxSlides:3,
-		         moveSlides:1,
-		         slideWidth:600,
-		         slideMargin:200,
-		         controls:false,
-		         pagerCustom:".slider_btn"
 			});
-			$(".right").click(function(){
-		         mySlide.goToNextSlide()
-		      });
-		      $(".left").click(function(){
-		         mySlide.goToPrevSlide()
-		      });
+
+			$(".g_slider").slick({
+				dots: true,
+		  		infinite: true,
+		  		speed: 300,
+		  		slidesToShow: 3,
+		  		adaptiveHeight: true,
+		  		autoplay:true,
+		  		autoplaySpeed:3000,
+		  		pager:true,
+		  		prevArrow: $('.left'),
+				nextArrow: $('.right'),
+		  		responsive: [
+				    {
+
+				      breakpoint: 959,
+
+				      settings: {
+
+				        slidesToShow: 1,
+
+				        slidesToScroll: 1
+
+				      }
+
+				    },
+
+					  ]
+
+
+			});
 				
 		});
 	</script>
@@ -861,45 +899,46 @@
 				<h1 class="g_title">PARASITE</h1>
 			</div>
 			<div class="g_slider" overflow:auto>
-				<a href="#" class="gal_btn gal_btn01">
+				<div class="g_s_img">
 					<img src="images/gallery0101.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn02">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0202.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn03">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0303.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn04">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0404.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn05">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0505.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn06">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0606.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn07">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0707.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn08">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0808.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn09">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery0909.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn10">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery1010.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn11">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery1111.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn12">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery1212.jpg" alt="">
-				</a>
-				<a href="#" class="gal_btn gal_btn13">
+				</div>
+				<div class="g_s_img">
 					<img src="images/gallery1313.jpg" alt="">
-				</a>
+				</div>
+
 			</div>
 			<div class="slider_btn">
 				<div class="left">

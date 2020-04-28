@@ -228,7 +228,7 @@
 		}
 		.sTitle .fnb_close,
 		.rTitle .fnb_close02{
-			position: absolute; left: 50%;
+			position: absolute; right: 50%;
 			transform:translateX(-50%);
 			bottom: 0;
 		}
@@ -686,8 +686,8 @@
 /*fullpage05*/
 		.g_center{
 			width: 800px; height: 500px;
-			position:absolute; left: 40%; bottom: 50px;
-			transform:translate(-50%,-50%);
+			position:absolute; left: 40%; bottom: 50px; top: 20%;
+			transform:translate(-50%,-20%);
 			animation: titleAni 5s infinite linear alternate;
 		}
 		@keyframes titleAni{
@@ -700,16 +700,13 @@
 			color:#999;
 		}
 		.g_slider{
-			height: 100%;
+			width: 80%;
+			margin: 450px 0 30px 180px;
 		}
+		.g_s_img{width: 300px; margin: 90px;}
+		.g_s_img > img{display: block; width: 100%;}
 
-		.gal_btn{
-			display: block;
-			width: 600px; height: 418px;
-			overflow:hidden;
-			position: absolute;
-			z-index: 999;
-		}
+
 
 		.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
 		    position: absolute;
@@ -719,8 +716,22 @@
 		    bottom: -180px;
 		}
 
-		.left{position: absolute; left: 0; top: 60%; transform:translateY(0);}
-		.right{position: absolute; right: 0; top: 60%; transform:translateY(0);}
+		.left{
+			width: 60px;
+    		height: 60px;
+			position: absolute; 
+			left: 150px; top: 65%; 
+			transform:translateY(0);
+		}
+		.right{
+			width: 60px;
+    		height: 60px;
+			position: absolute; 
+			right: 150px; top: 65%; 
+			transform:translateY(0);
+		}
+		.left > img,
+		.right > img{width: 100%;}
 
 		#page5 .bx-wrapper{
 			height: 100%;
